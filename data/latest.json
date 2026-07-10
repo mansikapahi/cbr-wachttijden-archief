@@ -1,0 +1,16 @@
+{
+  "fetched_date": "2026-07-10",
+  "iso_week": "2026-W28",
+  "publications": {
+    "wanneer-praktijkexamen": {
+      "slug": "wanneer-praktijkexamen",
+      "parse_status": "ok",
+      "source_url": "local:/tmp/cbr-praktijk-week27.pdf",
+      "cover": {
+        "week": 27,
+        "period": "29 juni - 5 juli",
+        "exam": "Eerste examen"
+      }
+    }
+  }
+}
