@@ -14,11 +14,11 @@
       "Zoetermeer": 7,
       "Rijswijk": 7,
       "Gouda": 7,
-      "Rotterdam": 7,
       "Schelluinen": 7,
+      "Dordrecht": 7,
+      "Rotterdam": 7,
       "Spijkenisse": 7,
-      "Barendrecht": 7,
-      "Dordrecht": 7
+      "Barendrecht": 7
     },
     "Zeeland": {
       "Goes": 6,
@@ -35,10 +35,10 @@
     },
     "Gelderland": {
       "Harderwijk": 7,
-      "Apeldoorn": 7,
       "Arnhem": 7,
       "Doetinchem": 7,
       "Tiel": 7,
+      "Apeldoorn": 7,
       "Nijmegen": 7
     },
     "Groningen": {
@@ -46,24 +46,24 @@
       "Winschoten": 7
     },
     "Limburg": {
+      "Kerkrade": 7,
+      "Maastricht": 7,
+      "Urmond": 7,
       "Venlo": 7,
       "Weert": 7,
-      "Roermond": 7,
-      "Urmond": 7,
-      "Kerkrade": 7,
-      "Maastricht": 7
+      "Roermond": 7
     },
     "Noord-Brabant": {
-      "Den Bosch": 7,
       "Breda": 7,
       "Berkel-Enschot": 7,
       "Bergen op Zoom": 7,
+      "Den Bosch": 7,
       "Eindhoven": 7,
       "Mierlo": 7
     },
     "Noord-Holland": {
-      "Den Helder": 6,
       "Hoorn": 7,
+      "Den Helder": 6,
       "Alkmaar": 7,
       "Zaandam": 7,
       "Haarlem": 7,
@@ -76,8 +76,8 @@
       "Hengelo": 7
     },
     "Utrecht": {
-      "Eemnes": 7,
       "Utrecht": 7,
+      "Eemnes": 7,
       "Leusden": 7
     },
     "Drenthe": {
@@ -104,11 +104,15 @@
       "province": "Zuid-Holland",
       "weeks": 7
     },
-    "Rotterdam": {
+    "Schelluinen": {
       "province": "Zuid-Holland",
       "weeks": 7
     },
-    "Schelluinen": {
+    "Dordrecht": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Rotterdam": {
       "province": "Zuid-Holland",
       "weeks": 7
     },
@@ -117,10 +121,6 @@
       "weeks": 7
     },
     "Barendrecht": {
-      "province": "Zuid-Holland",
-      "weeks": 7
-    },
-    "Dordrecht": {
       "province": "Zuid-Holland",
       "weeks": 7
     },
@@ -156,10 +156,6 @@
       "province": "Gelderland",
       "weeks": 7
     },
-    "Apeldoorn": {
-      "province": "Gelderland",
-      "weeks": 7
-    },
     "Arnhem": {
       "province": "Gelderland",
       "weeks": 7
@@ -169,6 +165,10 @@
       "weeks": 7
     },
     "Tiel": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Apeldoorn": {
       "province": "Gelderland",
       "weeks": 7
     },
@@ -184,6 +184,18 @@
       "province": "Groningen",
       "weeks": 7
     },
+    "Kerkrade": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Maastricht": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Urmond": {
+      "province": "Limburg",
+      "weeks": 7
+    },
     "Venlo": {
       "province": "Limburg",
       "weeks": 7
@@ -194,22 +206,6 @@
     },
     "Roermond": {
       "province": "Limburg",
-      "weeks": 7
-    },
-    "Urmond": {
-      "province": "Limburg",
-      "weeks": 7
-    },
-    "Kerkrade": {
-      "province": "Limburg",
-      "weeks": 7
-    },
-    "Maastricht": {
-      "province": "Limburg",
-      "weeks": 7
-    },
-    "Den Bosch": {
-      "province": "Noord-Brabant",
       "weeks": 7
     },
     "Breda": {
@@ -224,6 +220,10 @@
       "province": "Noord-Brabant",
       "weeks": 7
     },
+    "Den Bosch": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
     "Eindhoven": {
       "province": "Noord-Brabant",
       "weeks": 7
@@ -232,13 +232,13 @@
       "province": "Noord-Brabant",
       "weeks": 7
     },
-    "Den Helder": {
-      "province": "Noord-Holland",
-      "weeks": 6
-    },
     "Hoorn": {
       "province": "Noord-Holland",
       "weeks": 7
+    },
+    "Den Helder": {
+      "province": "Noord-Holland",
+      "weeks": 6
     },
     "Alkmaar": {
       "province": "Noord-Holland",
@@ -272,11 +272,11 @@
       "province": "Overijssel",
       "weeks": 7
     },
-    "Eemnes": {
+    "Utrecht": {
       "province": "Utrecht",
       "weeks": 7
     },
-    "Utrecht": {
+    "Eemnes": {
       "province": "Utrecht",
       "weeks": 7
     },
@@ -301,5 +301,7 @@
       "weeks": 7
     }
   },
-  "parse_warnings": []
+  "parse_warnings": [
+    "Noord-Holland/Hoorn: extra badge '6' ignored (kept closer one)"
+  ]
 }

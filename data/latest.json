@@ -29,7 +29,8 @@
       "cover": {
         "week": 27,
         "period": "29 juni - 5 juli",
-        "exam": "Theorie-examen"
+        "exam": "Theorie-examen",
+        "national_avg_weeks": 1.6
       }
     }
   }

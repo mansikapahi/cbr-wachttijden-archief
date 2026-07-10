@@ -6,71 +6,51 @@
   "cover": {
     "week": 27,
     "period": "29 juni - 5 juli",
-    "exam": "Theorie-examen"
+    "exam": "Theorie-examen",
+    "national_avg_weeks": 1.6
   },
   "provinces": {
     "Drenthe": {
-      "Hoogeveen": 3,
-      "Grote Beer": 3
+      "Hoogeveen": 3
     },
     "Friesland": {
-      "Leeuwarden": 2,
-      "2,8": 2,
-      "Douwe Tammingawei": 2
+      "Leeuwarden": 2
     },
     "Gelderland": {
-      "Arnhem": 2,
-      "Bovenbeekstraat Hazenkamp": 2
+      "Arnhem": 2
     },
     "Groningen": {
-      "Groningen": 2,
-      "Protonstraat": 2
+      "Groningen": 2
     },
     "Limburg": {
-      "Venlo- Blerick": 1,
-      "2,8": 1,
-      "Roermond": 1,
-      "Roermond Venlo-Blerick": 1,
-      "Hamstraat Antoniusplein": 1
+      "Venlo-Blerick": 1,
+      "Roermond": 1
     },
     "Noord-Brabant": {
       "Breda": 1,
-      "Eindhoven": 1,
-      "Breda Eindhoven": 1,
-      "Heerbaan Hoevenweg": 1
+      "Eindhoven": 1
     },
     "Noord-Holland": {
-      "2,8": 2,
       "Alkmaar": 2,
       "Haarlem": 2,
-      "Amsterdam": 1,
-      "Alkmaar Amsterdam Haarlem": 2,
-      "Olympiaweg Naritaweg 150 Professor Eijkmanlaan 2-4": 1
+      "Amsterdam": 1
     },
     "Overijssel": {
       "Zwolle": 2,
-      "Hengelo": 2,
       "Deventer": 2,
-      "Deventer Hengelo Zwolle": 2,
-      "Duisburgstraat Jan Tinbergenstraat 115 Branderweg": 2
+      "Hengelo": 2
     },
     "Utrecht": {
       "Utrecht": 2,
-      "Leusden": 2,
-      "Leusden Utrecht": 2,
-      "Fokkerstraat Mississippidreef 151": 2
+      "Leusden": 2
     },
     "Zeeland": {
-      "Goes": 2,
-      "2,8": 2,
-      "M.A. de Ruijterlaan": 2
+      "Goes": 2
     },
     "Zuid-Holland": {
-      "Rijswijk": 2,
-      "Schelluinen": 1,
       "Barendrecht": 1,
-      "Barendrecht Rijswijk Schelluinen": 1,
-      "Zwaalweg Lange Kleiweg Sportlaan 2A": 1
+      "Schelluinen": 1,
+      "Rijswijk": 2
     }
   },
   "locations": {
@@ -78,19 +58,7 @@
       "province": "Drenthe",
       "weeks": 3
     },
-    "Grote Beer": {
-      "province": "Drenthe",
-      "weeks": 3
-    },
     "Leeuwarden": {
-      "province": "Friesland",
-      "weeks": 2
-    },
-    "2,8": {
-      "province": "Zeeland",
-      "weeks": 2
-    },
-    "Douwe Tammingawei": {
       "province": "Friesland",
       "weeks": 2
     },
@@ -98,31 +66,15 @@
       "province": "Gelderland",
       "weeks": 2
     },
-    "Bovenbeekstraat Hazenkamp": {
-      "province": "Gelderland",
-      "weeks": 2
-    },
     "Groningen": {
       "province": "Groningen",
       "weeks": 2
     },
-    "Protonstraat": {
-      "province": "Groningen",
-      "weeks": 2
-    },
-    "Venlo- Blerick": {
+    "Venlo-Blerick": {
       "province": "Limburg",
       "weeks": 1
     },
     "Roermond": {
-      "province": "Limburg",
-      "weeks": 1
-    },
-    "Roermond Venlo-Blerick": {
-      "province": "Limburg",
-      "weeks": 1
-    },
-    "Hamstraat Antoniusplein": {
       "province": "Limburg",
       "weeks": 1
     },
@@ -131,14 +83,6 @@
       "weeks": 1
     },
     "Eindhoven": {
-      "province": "Noord-Brabant",
-      "weeks": 1
-    },
-    "Breda Eindhoven": {
-      "province": "Noord-Brabant",
-      "weeks": 1
-    },
-    "Heerbaan Hoevenweg": {
       "province": "Noord-Brabant",
       "weeks": 1
     },
@@ -154,19 +98,7 @@
       "province": "Noord-Holland",
       "weeks": 1
     },
-    "Alkmaar Amsterdam Haarlem": {
-      "province": "Noord-Holland",
-      "weeks": 2
-    },
-    "Olympiaweg Naritaweg 150 Professor Eijkmanlaan 2-4": {
-      "province": "Noord-Holland",
-      "weeks": 1
-    },
     "Zwolle": {
-      "province": "Overijssel",
-      "weeks": 2
-    },
-    "Hengelo": {
       "province": "Overijssel",
       "weeks": 2
     },
@@ -174,11 +106,7 @@
       "province": "Overijssel",
       "weeks": 2
     },
-    "Deventer Hengelo Zwolle": {
-      "province": "Overijssel",
-      "weeks": 2
-    },
-    "Duisburgstraat Jan Tinbergenstraat 115 Branderweg": {
+    "Hengelo": {
       "province": "Overijssel",
       "weeks": 2
     },
@@ -190,41 +118,21 @@
       "province": "Utrecht",
       "weeks": 2
     },
-    "Leusden Utrecht": {
-      "province": "Utrecht",
-      "weeks": 2
-    },
-    "Fokkerstraat Mississippidreef 151": {
-      "province": "Utrecht",
-      "weeks": 2
-    },
     "Goes": {
       "province": "Zeeland",
       "weeks": 2
-    },
-    "M.A. de Ruijterlaan": {
-      "province": "Zeeland",
-      "weeks": 2
-    },
-    "Rijswijk": {
-      "province": "Zuid-Holland",
-      "weeks": 2
-    },
-    "Schelluinen": {
-      "province": "Zuid-Holland",
-      "weeks": 1
     },
     "Barendrecht": {
       "province": "Zuid-Holland",
       "weeks": 1
     },
-    "Barendrecht Rijswijk Schelluinen": {
+    "Schelluinen": {
       "province": "Zuid-Holland",
       "weeks": 1
     },
-    "Zwaalweg Lange Kleiweg Sportlaan 2A": {
+    "Rijswijk": {
       "province": "Zuid-Holland",
-      "weeks": 1
+      "weeks": 2
     }
   },
   "parse_warnings": []
