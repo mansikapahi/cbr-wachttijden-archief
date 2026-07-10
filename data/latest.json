@@ -5,11 +5,31 @@
     "wanneer-praktijkexamen": {
       "slug": "wanneer-praktijkexamen",
       "parse_status": "ok",
-      "source_url": "local:/tmp/cbr-praktijk-week27.pdf",
+      "source_url": "https://view.publitas.com/37763/1301962/pdfs/67eedda6-da4d-41f6-add2-06bf84f4f83a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
       "cover": {
         "week": 27,
         "period": "29 juni - 5 juli",
         "exam": "Eerste examen"
+      }
+    },
+    "wanneer-herexamen": {
+      "slug": "wanneer-herexamen",
+      "parse_status": "ok",
+      "source_url": "https://view.publitas.com/37763/2216496/pdfs/488e35e4-c8a0-49cc-a981-a77462b5f04a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+      "cover": {
+        "week": 27,
+        "period": "29 juni - 5 juli",
+        "exam": "Herexamen"
+      }
+    },
+    "wanneer-theorie-examen": {
+      "slug": "wanneer-theorie-examen",
+      "parse_status": "ok",
+      "source_url": "https://view.publitas.com/37763/1325958/pdfs/f194a791-7d8f-4cd4-a6dd-415c4dfd06d5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+      "cover": {
+        "week": 27,
+        "period": "29 juni - 5 juli",
+        "exam": "Theorie-examen"
       }
     }
   }

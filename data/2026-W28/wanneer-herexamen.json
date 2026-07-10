@@ -1,0 +1,370 @@
+{
+  "slug": "wanneer-herexamen",
+  "parse_status": "ok",
+  "source_url": "https://view.publitas.com/37763/2216496/pdfs/488e35e4-c8a0-49cc-a981-a77462b5f04a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+  "source_file": "wanneer-herexamen.pdf",
+  "cover": {
+    "week": 27,
+    "period": "29 juni - 5 juli",
+    "exam": "Herexamen"
+  },
+  "provinces": {
+    "Zuid-Holland": {
+      "1-4": 5,
+      "Leiden": null,
+      "Zoetermeer": null,
+      "Rijswijk": null,
+      "Gouda": null,
+      "Rotterdam": 5,
+      "Schelluinen": 5,
+      "Spijkenisse": 5,
+      "Barendrecht": 5,
+      "Dordrecht": 5
+    },
+    "Zeeland": {
+      "1-4": null,
+      "Goes": null,
+      "Vlissingen": null,
+      "Terneuzen": null
+    },
+    "Flevoland": {
+      "1-4": null,
+      "Emmeloord": null
+    },
+    "Friesland": {
+      "1-4": null,
+      "Leeuwarden": null,
+      "Sneek": null,
+      "Heerenveen": null
+    },
+    "Gelderland": {
+      "1-4": 5,
+      "Harderwijk": null,
+      "Apeldoorn": null,
+      "Arnhem": 5,
+      "Doetinchem": 5,
+      "Tiel": 5,
+      "Nijmegen": 5
+    },
+    "Groningen": {
+      "1-4": null,
+      "Groningen": null,
+      "Winschoten": null
+    },
+    "Limburg": {
+      "1-4": null,
+      "Venlo": null,
+      "Weert": null,
+      "Roermond": null,
+      "Urmond": null,
+      "Kerkrade": null,
+      "Maastricht": null
+    },
+    "Noord-Brabant": {
+      "1-4": null,
+      "Den Bosch": null,
+      "Breda": null,
+      "Berkel-Enschot": null,
+      "Bergen op Zoom": null,
+      "Eindhoven": null,
+      "Mierlo": null
+    },
+    "Noord-Holland": {
+      "1-4": 6,
+      "Den Helder": null,
+      "Hoorn": 6,
+      "Alkmaar": 6,
+      "Zaandam": 6,
+      "Haarlem": 6,
+      "Amsterdam": 6
+    },
+    "Overijssel": {
+      "1-4": null,
+      "Zwolle": null,
+      "Almelo": null,
+      "Deventer": null,
+      "Hengelo": null
+    },
+    "Utrecht": {
+      "1-4": null,
+      "Eemnes": null,
+      "Utrecht": null,
+      "Leusden": null
+    },
+    "Drenthe": {
+      "1-4": null,
+      "Assen": null,
+      "Emmen": null,
+      "Hoogeveen": null,
+      "Meppel": null
+    }
+  },
+  "locations": {
+    "1-4": {
+      "province": "Drenthe",
+      "weeks": null
+    },
+    "Leiden": {
+      "province": "Zuid-Holland",
+      "weeks": null
+    },
+    "Zoetermeer": {
+      "province": "Zuid-Holland",
+      "weeks": null
+    },
+    "Rijswijk": {
+      "province": "Zuid-Holland",
+      "weeks": null
+    },
+    "Gouda": {
+      "province": "Zuid-Holland",
+      "weeks": null
+    },
+    "Rotterdam": {
+      "province": "Zuid-Holland",
+      "weeks": 5
+    },
+    "Schelluinen": {
+      "province": "Zuid-Holland",
+      "weeks": 5
+    },
+    "Spijkenisse": {
+      "province": "Zuid-Holland",
+      "weeks": 5
+    },
+    "Barendrecht": {
+      "province": "Zuid-Holland",
+      "weeks": 5
+    },
+    "Dordrecht": {
+      "province": "Zuid-Holland",
+      "weeks": 5
+    },
+    "Goes": {
+      "province": "Zeeland",
+      "weeks": null
+    },
+    "Vlissingen": {
+      "province": "Zeeland",
+      "weeks": null
+    },
+    "Terneuzen": {
+      "province": "Zeeland",
+      "weeks": null
+    },
+    "Emmeloord": {
+      "province": "Flevoland",
+      "weeks": null
+    },
+    "Leeuwarden": {
+      "province": "Friesland",
+      "weeks": null
+    },
+    "Sneek": {
+      "province": "Friesland",
+      "weeks": null
+    },
+    "Heerenveen": {
+      "province": "Friesland",
+      "weeks": null
+    },
+    "Harderwijk": {
+      "province": "Gelderland",
+      "weeks": null
+    },
+    "Apeldoorn": {
+      "province": "Gelderland",
+      "weeks": null
+    },
+    "Arnhem": {
+      "province": "Gelderland",
+      "weeks": 5
+    },
+    "Doetinchem": {
+      "province": "Gelderland",
+      "weeks": 5
+    },
+    "Tiel": {
+      "province": "Gelderland",
+      "weeks": 5
+    },
+    "Nijmegen": {
+      "province": "Gelderland",
+      "weeks": 5
+    },
+    "Groningen": {
+      "province": "Groningen",
+      "weeks": null
+    },
+    "Winschoten": {
+      "province": "Groningen",
+      "weeks": null
+    },
+    "Venlo": {
+      "province": "Limburg",
+      "weeks": null
+    },
+    "Weert": {
+      "province": "Limburg",
+      "weeks": null
+    },
+    "Roermond": {
+      "province": "Limburg",
+      "weeks": null
+    },
+    "Urmond": {
+      "province": "Limburg",
+      "weeks": null
+    },
+    "Kerkrade": {
+      "province": "Limburg",
+      "weeks": null
+    },
+    "Maastricht": {
+      "province": "Limburg",
+      "weeks": null
+    },
+    "Den Bosch": {
+      "province": "Noord-Brabant",
+      "weeks": null
+    },
+    "Breda": {
+      "province": "Noord-Brabant",
+      "weeks": null
+    },
+    "Berkel-Enschot": {
+      "province": "Noord-Brabant",
+      "weeks": null
+    },
+    "Bergen op Zoom": {
+      "province": "Noord-Brabant",
+      "weeks": null
+    },
+    "Eindhoven": {
+      "province": "Noord-Brabant",
+      "weeks": null
+    },
+    "Mierlo": {
+      "province": "Noord-Brabant",
+      "weeks": null
+    },
+    "Den Helder": {
+      "province": "Noord-Holland",
+      "weeks": null
+    },
+    "Hoorn": {
+      "province": "Noord-Holland",
+      "weeks": 6
+    },
+    "Alkmaar": {
+      "province": "Noord-Holland",
+      "weeks": 6
+    },
+    "Zaandam": {
+      "province": "Noord-Holland",
+      "weeks": 6
+    },
+    "Haarlem": {
+      "province": "Noord-Holland",
+      "weeks": 6
+    },
+    "Amsterdam": {
+      "province": "Noord-Holland",
+      "weeks": 6
+    },
+    "Zwolle": {
+      "province": "Overijssel",
+      "weeks": null
+    },
+    "Almelo": {
+      "province": "Overijssel",
+      "weeks": null
+    },
+    "Deventer": {
+      "province": "Overijssel",
+      "weeks": null
+    },
+    "Hengelo": {
+      "province": "Overijssel",
+      "weeks": null
+    },
+    "Eemnes": {
+      "province": "Utrecht",
+      "weeks": null
+    },
+    "Utrecht": {
+      "province": "Utrecht",
+      "weeks": null
+    },
+    "Leusden": {
+      "province": "Utrecht",
+      "weeks": null
+    },
+    "Assen": {
+      "province": "Drenthe",
+      "weeks": null
+    },
+    "Emmen": {
+      "province": "Drenthe",
+      "weeks": null
+    },
+    "Hoogeveen": {
+      "province": "Drenthe",
+      "weeks": null
+    },
+    "Meppel": {
+      "province": "Drenthe",
+      "weeks": null
+    }
+  },
+  "parse_warnings": [
+    "Zuid-Holland/Leiden: no number matched",
+    "Zuid-Holland/Zoetermeer: no number matched",
+    "Zuid-Holland/Rijswijk: no number matched",
+    "Zuid-Holland/Gouda: no number matched",
+    "Zeeland/1-4: no number matched",
+    "Zeeland/Goes: no number matched",
+    "Zeeland/Vlissingen: no number matched",
+    "Zeeland/Terneuzen: no number matched",
+    "Flevoland/1-4: no number matched",
+    "Flevoland/Emmeloord: no number matched",
+    "Friesland/1-4: no number matched",
+    "Friesland/Leeuwarden: no number matched",
+    "Friesland/Sneek: no number matched",
+    "Friesland/Heerenveen: no number matched",
+    "Gelderland/Harderwijk: no number matched",
+    "Gelderland/Apeldoorn: no number matched",
+    "Groningen/1-4: no number matched",
+    "Groningen/Groningen: no number matched",
+    "Groningen/Winschoten: no number matched",
+    "Limburg/1-4: no number matched",
+    "Limburg/Venlo: no number matched",
+    "Limburg/Weert: no number matched",
+    "Limburg/Roermond: no number matched",
+    "Limburg/Urmond: no number matched",
+    "Limburg/Kerkrade: no number matched",
+    "Limburg/Maastricht: no number matched",
+    "Noord-Brabant/1-4: no number matched",
+    "Noord-Brabant/Den Bosch: no number matched",
+    "Noord-Brabant/Breda: no number matched",
+    "Noord-Brabant/Berkel-Enschot: no number matched",
+    "Noord-Brabant/Bergen op Zoom: no number matched",
+    "Noord-Brabant/Eindhoven: no number matched",
+    "Noord-Brabant/Mierlo: no number matched",
+    "Noord-Holland/Den Helder: no number matched",
+    "Overijssel/1-4: no number matched",
+    "Overijssel/Zwolle: no number matched",
+    "Overijssel/Almelo: no number matched",
+    "Overijssel/Deventer: no number matched",
+    "Overijssel/Hengelo: no number matched",
+    "Utrecht/1-4: no number matched",
+    "Utrecht/Eemnes: no number matched",
+    "Utrecht/Utrecht: no number matched",
+    "Utrecht/Leusden: no number matched",
+    "Drenthe/1-4: no number matched",
+    "Drenthe/Assen: no number matched",
+    "Drenthe/Emmen: no number matched",
+    "Drenthe/Hoogeveen: no number matched",
+    "Drenthe/Meppel: no number matched"
+  ]
+}
