@@ -2,6 +2,7 @@
 
 Checks the things a green CI run does NOT prove:
   - all three publications fetched AND parsed ("parse_status": "ok")
+  - the fetched publication is actually fresh (cover week vs fetch week)
   - each publication produced a plausible number of location rows
   - location sets are stable vs the previous week (diff printed)
   - weeks values are sane (0..30; ranges only where expected)
@@ -118,6 +119,26 @@ def check_parse_status(jsons):
             warn(f"{slug}: {w}")
 
 
+def check_freshness(week_str, jsons):
+    """CBR does not always publish weekly. A stale cover week is CBR's
+    behavior (worth recording loudly), not a pipeline failure — so warn,
+    don't fail. A red CI should mean OUR pipeline broke."""
+    print("\n[2b] Publication freshness")
+    fetch_week = int(week_str[6:])
+    for slug, rec in jsons.items():
+        cover = rec.get("cover", {}).get("week")
+        if cover is None:
+            warn(f"{slug}: no cover week parsed")
+        elif fetch_week - cover >= 2:
+            warn(f"{slug}: STALE — cover says week {cover}, fetched in week "
+                 f"{fetch_week}; CBR has not published for "
+                 f"{fetch_week - cover} week(s)")
+        elif fetch_week - cover == 1:
+            ok(f"{slug}: cover week {cover} (normal 1-week lag)")
+        else:
+            ok(f"{slug}: cover week {cover}, current")
+
+
 def check_values(jsons):
     print("\n[3] Value sanity")
     for slug, rec in jsons.items():
@@ -209,6 +230,7 @@ def main():
     check_files(week_str)
     jsons = load_week_jsons(week_str)
     check_parse_status(jsons)
+    check_freshness(week_str, jsons)
     check_values(jsons)
     check_vs_previous(week_str, jsons)
     check_history(week_str, jsons)
@@ -218,3 +240,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
