@@ -1,0 +1,307 @@
+{
+  "slug": "wanneer-praktijkexamen",
+  "parse_status": "ok",
+  "source_url": "https://view.publitas.com/37763/1301962/pdfs/67eedda6-da4d-41f6-add2-06bf84f4f83a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
+  "source_file": "wanneer-praktijkexamen.pdf",
+  "cover": {
+    "week": 27,
+    "period": "29 juni - 5 juli",
+    "exam": "Eerste examen"
+  },
+  "provinces": {
+    "Zuid-Holland": {
+      "Leiden": 7,
+      "Zoetermeer": 7,
+      "Rijswijk": 7,
+      "Gouda": 7,
+      "Schelluinen": 7,
+      "Dordrecht": 7,
+      "Rotterdam": 7,
+      "Spijkenisse": 7,
+      "Barendrecht": 7
+    },
+    "Zeeland": {
+      "Goes": 6,
+      "Vlissingen": 6,
+      "Terneuzen": 7
+    },
+    "Flevoland": {
+      "Emmeloord": 7
+    },
+    "Friesland": {
+      "Leeuwarden": 7,
+      "Sneek": 7,
+      "Heerenveen": 5
+    },
+    "Gelderland": {
+      "Harderwijk": 7,
+      "Arnhem": 7,
+      "Doetinchem": 7,
+      "Tiel": 7,
+      "Apeldoorn": 7,
+      "Nijmegen": 7
+    },
+    "Groningen": {
+      "Groningen": 7,
+      "Winschoten": 7
+    },
+    "Limburg": {
+      "Kerkrade": 7,
+      "Maastricht": 7,
+      "Urmond": 7,
+      "Venlo": 7,
+      "Weert": 7,
+      "Roermond": 7
+    },
+    "Noord-Brabant": {
+      "Breda": 7,
+      "Berkel-Enschot": 7,
+      "Bergen op Zoom": 7,
+      "Den Bosch": 7,
+      "Eindhoven": 7,
+      "Mierlo": 7
+    },
+    "Noord-Holland": {
+      "Hoorn": 7,
+      "Den Helder": 6,
+      "Alkmaar": 7,
+      "Zaandam": 7,
+      "Haarlem": 7,
+      "Amsterdam": 7
+    },
+    "Overijssel": {
+      "Zwolle": 7,
+      "Almelo": 7,
+      "Deventer": 7,
+      "Hengelo": 7
+    },
+    "Utrecht": {
+      "Utrecht": 7,
+      "Eemnes": 7,
+      "Leusden": 7
+    },
+    "Drenthe": {
+      "Assen": 5,
+      "Emmen": 7,
+      "Hoogeveen": 6,
+      "Meppel": 7
+    }
+  },
+  "locations": {
+    "Leiden": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Zoetermeer": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Rijswijk": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Gouda": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Schelluinen": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Dordrecht": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Rotterdam": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Spijkenisse": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Barendrecht": {
+      "province": "Zuid-Holland",
+      "weeks": 7
+    },
+    "Goes": {
+      "province": "Zeeland",
+      "weeks": 6
+    },
+    "Vlissingen": {
+      "province": "Zeeland",
+      "weeks": 6
+    },
+    "Terneuzen": {
+      "province": "Zeeland",
+      "weeks": 7
+    },
+    "Emmeloord": {
+      "province": "Flevoland",
+      "weeks": 7
+    },
+    "Leeuwarden": {
+      "province": "Friesland",
+      "weeks": 7
+    },
+    "Sneek": {
+      "province": "Friesland",
+      "weeks": 7
+    },
+    "Heerenveen": {
+      "province": "Friesland",
+      "weeks": 5
+    },
+    "Harderwijk": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Arnhem": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Doetinchem": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Tiel": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Apeldoorn": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Nijmegen": {
+      "province": "Gelderland",
+      "weeks": 7
+    },
+    "Groningen": {
+      "province": "Groningen",
+      "weeks": 7
+    },
+    "Winschoten": {
+      "province": "Groningen",
+      "weeks": 7
+    },
+    "Kerkrade": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Maastricht": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Urmond": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Venlo": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Weert": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Roermond": {
+      "province": "Limburg",
+      "weeks": 7
+    },
+    "Breda": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
+    "Berkel-Enschot": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
+    "Bergen op Zoom": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
+    "Den Bosch": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
+    "Eindhoven": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
+    "Mierlo": {
+      "province": "Noord-Brabant",
+      "weeks": 7
+    },
+    "Hoorn": {
+      "province": "Noord-Holland",
+      "weeks": 7
+    },
+    "Den Helder": {
+      "province": "Noord-Holland",
+      "weeks": 6
+    },
+    "Alkmaar": {
+      "province": "Noord-Holland",
+      "weeks": 7
+    },
+    "Zaandam": {
+      "province": "Noord-Holland",
+      "weeks": 7
+    },
+    "Haarlem": {
+      "province": "Noord-Holland",
+      "weeks": 7
+    },
+    "Amsterdam": {
+      "province": "Noord-Holland",
+      "weeks": 7
+    },
+    "Zwolle": {
+      "province": "Overijssel",
+      "weeks": 7
+    },
+    "Almelo": {
+      "province": "Overijssel",
+      "weeks": 7
+    },
+    "Deventer": {
+      "province": "Overijssel",
+      "weeks": 7
+    },
+    "Hengelo": {
+      "province": "Overijssel",
+      "weeks": 7
+    },
+    "Utrecht": {
+      "province": "Utrecht",
+      "weeks": 7
+    },
+    "Eemnes": {
+      "province": "Utrecht",
+      "weeks": 7
+    },
+    "Leusden": {
+      "province": "Utrecht",
+      "weeks": 7
+    },
+    "Assen": {
+      "province": "Drenthe",
+      "weeks": 5
+    },
+    "Emmen": {
+      "province": "Drenthe",
+      "weeks": 7
+    },
+    "Hoogeveen": {
+      "province": "Drenthe",
+      "weeks": 6
+    },
+    "Meppel": {
+      "province": "Drenthe",
+      "weeks": 7
+    }
+  },
+  "parse_warnings": [
+    "Noord-Holland/Hoorn: extra badge '6' ignored (kept closer one)"
+  ]
+}

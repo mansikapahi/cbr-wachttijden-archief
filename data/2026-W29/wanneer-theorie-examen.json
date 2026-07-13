@@ -1,0 +1,139 @@
+{
+  "slug": "wanneer-theorie-examen",
+  "parse_status": "ok",
+  "source_url": "https://view.publitas.com/37763/1325958/pdfs/f194a791-7d8f-4cd4-a6dd-415c4dfd06d5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+  "source_file": "wanneer-theorie-examen.pdf",
+  "cover": {
+    "week": 27,
+    "period": "29 juni - 5 juli",
+    "exam": "Theorie-examen",
+    "national_avg_weeks": 1.6
+  },
+  "provinces": {
+    "Drenthe": {
+      "Hoogeveen": 3
+    },
+    "Friesland": {
+      "Leeuwarden": 2
+    },
+    "Gelderland": {
+      "Arnhem": 2
+    },
+    "Groningen": {
+      "Groningen": 2
+    },
+    "Limburg": {
+      "Venlo-Blerick": 1,
+      "Roermond": 1
+    },
+    "Noord-Brabant": {
+      "Breda": 1,
+      "Eindhoven": 1
+    },
+    "Noord-Holland": {
+      "Alkmaar": 2,
+      "Haarlem": 2,
+      "Amsterdam": 1
+    },
+    "Overijssel": {
+      "Zwolle": 2,
+      "Deventer": 2,
+      "Hengelo": 2
+    },
+    "Utrecht": {
+      "Utrecht": 2,
+      "Leusden": 2
+    },
+    "Zeeland": {
+      "Goes": 2
+    },
+    "Zuid-Holland": {
+      "Barendrecht": 1,
+      "Schelluinen": 1,
+      "Rijswijk": 2
+    }
+  },
+  "locations": {
+    "Hoogeveen": {
+      "province": "Drenthe",
+      "weeks": 3
+    },
+    "Leeuwarden": {
+      "province": "Friesland",
+      "weeks": 2
+    },
+    "Arnhem": {
+      "province": "Gelderland",
+      "weeks": 2
+    },
+    "Groningen": {
+      "province": "Groningen",
+      "weeks": 2
+    },
+    "Venlo-Blerick": {
+      "province": "Limburg",
+      "weeks": 1
+    },
+    "Roermond": {
+      "province": "Limburg",
+      "weeks": 1
+    },
+    "Breda": {
+      "province": "Noord-Brabant",
+      "weeks": 1
+    },
+    "Eindhoven": {
+      "province": "Noord-Brabant",
+      "weeks": 1
+    },
+    "Alkmaar": {
+      "province": "Noord-Holland",
+      "weeks": 2
+    },
+    "Haarlem": {
+      "province": "Noord-Holland",
+      "weeks": 2
+    },
+    "Amsterdam": {
+      "province": "Noord-Holland",
+      "weeks": 1
+    },
+    "Zwolle": {
+      "province": "Overijssel",
+      "weeks": 2
+    },
+    "Deventer": {
+      "province": "Overijssel",
+      "weeks": 2
+    },
+    "Hengelo": {
+      "province": "Overijssel",
+      "weeks": 2
+    },
+    "Utrecht": {
+      "province": "Utrecht",
+      "weeks": 2
+    },
+    "Leusden": {
+      "province": "Utrecht",
+      "weeks": 2
+    },
+    "Goes": {
+      "province": "Zeeland",
+      "weeks": 2
+    },
+    "Barendrecht": {
+      "province": "Zuid-Holland",
+      "weeks": 1
+    },
+    "Schelluinen": {
+      "province": "Zuid-Holland",
+      "weeks": 1
+    },
+    "Rijswijk": {
+      "province": "Zuid-Holland",
+      "weeks": 2
+    }
+  },
+  "parse_warnings": []
+}
