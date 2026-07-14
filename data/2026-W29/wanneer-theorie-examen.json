@@ -1,13 +1,13 @@
 {
   "slug": "wanneer-theorie-examen",
   "parse_status": "ok",
-  "source_url": "https://view.publitas.com/37763/1325958/pdfs/f194a791-7d8f-4cd4-a6dd-415c4dfd06d5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+  "source_url": "https://view.publitas.com/37763/1325958/pdfs/2a08d31e-5522-48ce-9ee6-507a5a764146.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
   "source_file": "wanneer-theorie-examen.pdf",
   "cover": {
-    "week": 27,
-    "period": "29 juni - 5 juli",
+    "week": 28,
+    "period": "6 juli - 12 juli",
     "exam": "Theorie-examen",
-    "national_avg_weeks": 1.6
+    "national_avg_weeks": 1.4
   },
   "provinces": {
     "Drenthe": {
@@ -17,7 +17,7 @@
       "Leeuwarden": 2
     },
     "Gelderland": {
-      "Arnhem": 2
+      "Arnhem": 1
     },
     "Groningen": {
       "Groningen": 2
@@ -28,21 +28,21 @@
     },
     "Noord-Brabant": {
       "Breda": 1,
-      "Eindhoven": 1
+      "Eindhoven": 2
     },
     "Noord-Holland": {
-      "Alkmaar": 2,
+      "Alkmaar": 3,
       "Haarlem": 2,
       "Amsterdam": 1
     },
     "Overijssel": {
       "Zwolle": 2,
       "Deventer": 2,
-      "Hengelo": 2
+      "Hengelo": 1
     },
     "Utrecht": {
-      "Utrecht": 2,
-      "Leusden": 2
+      "Utrecht": 1,
+      "Leusden": 1
     },
     "Zeeland": {
       "Goes": 2
@@ -64,7 +64,7 @@
     },
     "Arnhem": {
       "province": "Gelderland",
-      "weeks": 2
+      "weeks": 1
     },
     "Groningen": {
       "province": "Groningen",
@@ -84,11 +84,11 @@
     },
     "Eindhoven": {
       "province": "Noord-Brabant",
-      "weeks": 1
+      "weeks": 2
     },
     "Alkmaar": {
       "province": "Noord-Holland",
-      "weeks": 2
+      "weeks": 3
     },
     "Haarlem": {
       "province": "Noord-Holland",
@@ -108,15 +108,15 @@
     },
     "Hengelo": {
       "province": "Overijssel",
-      "weeks": 2
+      "weeks": 1
     },
     "Utrecht": {
       "province": "Utrecht",
-      "weeks": 2
+      "weeks": 1
     },
     "Leusden": {
       "province": "Utrecht",
-      "weeks": 2
+      "weeks": 1
     },
     "Goes": {
       "province": "Zeeland",

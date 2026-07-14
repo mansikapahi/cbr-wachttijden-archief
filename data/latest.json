@@ -1,36 +1,36 @@
 {
-  "fetched_date": "2026-07-13",
+  "fetched_date": "2026-07-14",
   "iso_week": "2026-W29",
   "publications": {
     "wanneer-praktijkexamen": {
       "slug": "wanneer-praktijkexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1301962/pdfs/67eedda6-da4d-41f6-add2-06bf84f4f83a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
+      "source_url": "https://view.publitas.com/37763/1301962/pdfs/13683f06-d06d-4b6a-adee-d0ced0045dc6.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
       "cover": {
-        "week": 27,
-        "period": "29 juni - 5 juli",
+        "week": 28,
+        "period": "6 juli - 12 juli",
         "exam": "Eerste examen"
       }
     },
     "wanneer-herexamen": {
       "slug": "wanneer-herexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/2216496/pdfs/488e35e4-c8a0-49cc-a981-a77462b5f04a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+      "source_url": "https://view.publitas.com/37763/2216496/pdfs/cf81779b-d74c-41a5-867e-cacf2a2656ee.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
       "cover": {
-        "week": 27,
-        "period": "29 juni - 5 juli",
+        "week": 28,
+        "period": "6 juli - 12 juli",
         "exam": "Herexamen"
       }
     },
     "wanneer-theorie-examen": {
       "slug": "wanneer-theorie-examen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1325958/pdfs/f194a791-7d8f-4cd4-a6dd-415c4dfd06d5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+      "source_url": "https://view.publitas.com/37763/1325958/pdfs/2a08d31e-5522-48ce-9ee6-507a5a764146.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
       "cover": {
-        "week": 27,
-        "period": "29 juni - 5 juli",
+        "week": 28,
+        "period": "6 juli - 12 juli",
         "exam": "Theorie-examen",
-        "national_avg_weeks": 1.6
+        "national_avg_weeks": 1.4
       }
     }
   }
