@@ -315,6 +315,25 @@ def build_location_page(lslug, entry, out_dir):
 
     current_praktijk = entry["series"].get("wanneer-praktijkexamen", [(None, None, None, "?")])[-1][3]
 
+    # Build a unique meta description from this location's actual current
+    # weeks-values, rather than a boilerplate sentence repeated on every page.
+    weeks_by_slug = {}
+    for slug in EXAM_ORDER:
+        series = entry["series"].get(slug)
+        if series:
+            weeks_by_slug[slug] = series[-1][3]
+
+    desc_parts = [f"Praktijkexamen in {entry['name']}: {weeks_by_slug.get('wanneer-praktijkexamen', '?')} weken wachttijd."]
+    extras = []
+    if "wanneer-herexamen" in weeks_by_slug:
+        extras.append(f"herexamen {weeks_by_slug['wanneer-herexamen']} wk")
+    if "wanneer-theorie-examen" in weeks_by_slug:
+        extras.append(f"theorie-examen {weeks_by_slug['wanneer-theorie-examen']} wk")
+    if extras:
+        desc_parts.append(f"Ook bekend: {', '.join(extras)}.")
+    desc_parts.append(f"Wekelijks gearchiveerd sinds week 27, 2026 &mdash; {prov}.")
+    location_description = " ".join(desc_parts)
+
     body = f"""
 <p class="crumbs"><a href="../../index.html">Overzicht</a> &rsaquo; {prov} &rsaquo; {entry['name']}</p>
 <h1>Wachttijden examens in {entry['name']}</h1>
@@ -332,8 +351,7 @@ er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).</p>
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(
         page(f"Wachttijd examens {entry['name']} | rijexamenwachttijden.nl",
-             f"Actuele en historische CBR-wachttijden voor praktijkexamen, herexamen en "
-             f"theorie-examen in {entry['name']}, {prov}.", body, root="../../"))
+             location_description, body, root="../../"))
 
 
 def build_over_page(out_dir):
