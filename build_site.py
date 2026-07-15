@@ -365,6 +365,37 @@ eerder een plek vinden via het reserveringssysteem.</p>
              "Methodologie en achtergrond van het CBR-wachttijden archief.", body))
 
 
+SITE_URL = "https://rijexamenwachttijden.nl"
+
+
+def build_sitemap(locations, out_dir):
+    """Lists homepage, over.html, and every location page so Google can
+    discover pages that aren't reachable purely by crawling links."""
+    urls = [
+        f"{SITE_URL}/",
+        f"{SITE_URL}/over.html",
+    ]
+    for lslug in locations:
+        urls.append(f"{SITE_URL}/locatie/{lslug}/")
+
+    body = "".join(f"<url><loc>{u}</loc></url>\n" for u in urls)
+    xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f"{body}"
+        "</urlset>\n"
+    )
+    (out_dir / "sitemap.xml").write_text(xml)
+
+
+def build_robots(out_dir):
+    (out_dir / "robots.txt").write_text(
+        "User-agent: *\n"
+        "Allow: /\n"
+        f"Sitemap: {SITE_URL}/sitemap.xml\n"
+    )
+
+
 def main():
     DIST.mkdir(exist_ok=True)
     (DIST / "style.css").write_text(CSS)
@@ -373,7 +404,9 @@ def main():
     build_over_page(DIST)
     for lslug, entry in locations.items():
         build_location_page(lslug, entry, DIST)
-    print(f"Built {len(locations)} location pages + homepage + over.html into dist/")
+    build_sitemap(locations, DIST)
+    build_robots(DIST)
+    print(f"Built {len(locations)} location pages + homepage + over.html + sitemap.xml + robots.txt into dist/")
 
 
 if __name__ == "__main__":
