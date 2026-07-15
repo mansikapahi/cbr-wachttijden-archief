@@ -10,295 +10,295 @@
   },
   "provinces": {
     "Zuid-Holland": {
-      "Leiden": 77,
-      "Zoetermeer": 77,
-      "Rijswijk": 77,
-      "Gouda": 77,
-      "Schelluinen": 77,
-      "Dordrecht": 77,
-      "Rotterdam": 77,
-      "Spijkenisse": 77,
-      "Barendrecht": 77
+      "Leiden": 7,
+      "Zoetermeer": 7,
+      "Rijswijk": 7,
+      "Gouda": 7,
+      "Schelluinen": 7,
+      "Dordrecht": 7,
+      "Rotterdam": 7,
+      "Spijkenisse": 7,
+      "Barendrecht": 7
     },
     "Zeeland": {
-      "Goes": 66,
-      "Vlissingen": 77,
-      "Terneuzen": 66
+      "Goes": 6,
+      "Vlissingen": 7,
+      "Terneuzen": 6
     },
     "Flevoland": {
-      "Emmeloord": 77
+      "Emmeloord": 7
     },
     "Friesland": {
-      "Leeuwarden": 77,
-      "Sneek": 77,
-      "Heerenveen": 55
+      "Leeuwarden": 7,
+      "Sneek": 7,
+      "Heerenveen": 5
     },
     "Gelderland": {
-      "Harderwijk": 77,
-      "Arnhem": 77,
-      "Doetinchem": 77,
-      "Tiel": 77,
-      "Apeldoorn": 77,
-      "Nijmegen": 77
+      "Harderwijk": 7,
+      "Arnhem": 7,
+      "Doetinchem": 7,
+      "Tiel": 7,
+      "Apeldoorn": 7,
+      "Nijmegen": 7
     },
     "Groningen": {
-      "Groningen": 77,
-      "Winschoten": 77
+      "Groningen": 7,
+      "Winschoten": 7
     },
     "Limburg": {
-      "Kerkrade": 77,
-      "Maastricht": 77,
-      "Urmond": 77,
-      "Venlo": 77,
-      "Weert": 77,
-      "Roermond": 77
+      "Kerkrade": 7,
+      "Maastricht": 7,
+      "Urmond": 7,
+      "Venlo": 7,
+      "Weert": 7,
+      "Roermond": 7
     },
     "Noord-Brabant": {
-      "Breda": 77,
-      "Berkel-Enschot": 77,
-      "Bergen op Zoom": 77,
-      "Den Bosch": 88,
-      "Eindhoven": 77,
-      "Mierlo": 77
+      "Breda": 7,
+      "Berkel-Enschot": 7,
+      "Bergen op Zoom": 7,
+      "Den Bosch": 8,
+      "Eindhoven": 7,
+      "Mierlo": 7
     },
     "Noord-Holland": {
-      "Hoorn": 77,
-      "Den Helder": 77,
-      "Alkmaar": 66,
-      "Zaandam": 77,
-      "Haarlem": 77,
-      "Amsterdam": 77
+      "Hoorn": 7,
+      "Den Helder": 7,
+      "Alkmaar": 6,
+      "Zaandam": 7,
+      "Haarlem": 7,
+      "Amsterdam": 7
     },
     "Overijssel": {
-      "Zwolle": 77,
-      "Almelo": 77,
-      "Deventer": 77,
-      "Hengelo": 77
+      "Zwolle": 7,
+      "Almelo": 7,
+      "Deventer": 7,
+      "Hengelo": 7
     },
     "Utrecht": {
-      "Utrecht": 77,
-      "Eemnes": 77,
-      "Leusden": 77
+      "Utrecht": 7,
+      "Eemnes": 7,
+      "Leusden": 7
     },
     "Drenthe": {
-      "Assen": 44,
-      "Emmen": 77,
-      "Hoogeveen": 77,
-      "Meppel": 77
+      "Assen": 4,
+      "Emmen": 7,
+      "Hoogeveen": 7,
+      "Meppel": 7
     }
   },
   "locations": {
     "Leiden": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Zoetermeer": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Rijswijk": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Gouda": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Schelluinen": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Dordrecht": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Rotterdam": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Spijkenisse": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Barendrecht": {
       "province": "Zuid-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Goes": {
       "province": "Zeeland",
-      "weeks": 66
+      "weeks": 6
     },
     "Vlissingen": {
       "province": "Zeeland",
-      "weeks": 77
+      "weeks": 7
     },
     "Terneuzen": {
       "province": "Zeeland",
-      "weeks": 66
+      "weeks": 6
     },
     "Emmeloord": {
       "province": "Flevoland",
-      "weeks": 77
+      "weeks": 7
     },
     "Leeuwarden": {
       "province": "Friesland",
-      "weeks": 77
+      "weeks": 7
     },
     "Sneek": {
       "province": "Friesland",
-      "weeks": 77
+      "weeks": 7
     },
     "Heerenveen": {
       "province": "Friesland",
-      "weeks": 55
+      "weeks": 5
     },
     "Harderwijk": {
       "province": "Gelderland",
-      "weeks": 77
+      "weeks": 7
     },
     "Arnhem": {
       "province": "Gelderland",
-      "weeks": 77
+      "weeks": 7
     },
     "Doetinchem": {
       "province": "Gelderland",
-      "weeks": 77
+      "weeks": 7
     },
     "Tiel": {
       "province": "Gelderland",
-      "weeks": 77
+      "weeks": 7
     },
     "Apeldoorn": {
       "province": "Gelderland",
-      "weeks": 77
+      "weeks": 7
     },
     "Nijmegen": {
       "province": "Gelderland",
-      "weeks": 77
+      "weeks": 7
     },
     "Groningen": {
       "province": "Groningen",
-      "weeks": 77
+      "weeks": 7
     },
     "Winschoten": {
       "province": "Groningen",
-      "weeks": 77
+      "weeks": 7
     },
     "Kerkrade": {
       "province": "Limburg",
-      "weeks": 77
+      "weeks": 7
     },
     "Maastricht": {
       "province": "Limburg",
-      "weeks": 77
+      "weeks": 7
     },
     "Urmond": {
       "province": "Limburg",
-      "weeks": 77
+      "weeks": 7
     },
     "Venlo": {
       "province": "Limburg",
-      "weeks": 77
+      "weeks": 7
     },
     "Weert": {
       "province": "Limburg",
-      "weeks": 77
+      "weeks": 7
     },
     "Roermond": {
       "province": "Limburg",
-      "weeks": 77
+      "weeks": 7
     },
     "Breda": {
       "province": "Noord-Brabant",
-      "weeks": 77
+      "weeks": 7
     },
     "Berkel-Enschot": {
       "province": "Noord-Brabant",
-      "weeks": 77
+      "weeks": 7
     },
     "Bergen op Zoom": {
       "province": "Noord-Brabant",
-      "weeks": 77
+      "weeks": 7
     },
     "Den Bosch": {
       "province": "Noord-Brabant",
-      "weeks": 88
+      "weeks": 8
     },
     "Eindhoven": {
       "province": "Noord-Brabant",
-      "weeks": 77
+      "weeks": 7
     },
     "Mierlo": {
       "province": "Noord-Brabant",
-      "weeks": 77
+      "weeks": 7
     },
     "Hoorn": {
       "province": "Noord-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Den Helder": {
       "province": "Noord-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Alkmaar": {
       "province": "Noord-Holland",
-      "weeks": 66
+      "weeks": 6
     },
     "Zaandam": {
       "province": "Noord-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Haarlem": {
       "province": "Noord-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Amsterdam": {
       "province": "Noord-Holland",
-      "weeks": 77
+      "weeks": 7
     },
     "Zwolle": {
       "province": "Overijssel",
-      "weeks": 77
+      "weeks": 7
     },
     "Almelo": {
       "province": "Overijssel",
-      "weeks": 77
+      "weeks": 7
     },
     "Deventer": {
       "province": "Overijssel",
-      "weeks": 77
+      "weeks": 7
     },
     "Hengelo": {
       "province": "Overijssel",
-      "weeks": 77
+      "weeks": 7
     },
     "Utrecht": {
       "province": "Utrecht",
-      "weeks": 77
+      "weeks": 7
     },
     "Eemnes": {
       "province": "Utrecht",
-      "weeks": 77
+      "weeks": 7
     },
     "Leusden": {
       "province": "Utrecht",
-      "weeks": 77
+      "weeks": 7
     },
     "Assen": {
       "province": "Drenthe",
-      "weeks": 44
+      "weeks": 4
     },
     "Emmen": {
       "province": "Drenthe",
-      "weeks": 77
+      "weeks": 7
     },
     "Hoogeveen": {
       "province": "Drenthe",
-      "weeks": 77
+      "weeks": 7
     },
     "Meppel": {
       "province": "Drenthe",
-      "weeks": 77
+      "weeks": 7
     }
   },
   "parse_warnings": [
