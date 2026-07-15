@@ -179,8 +179,12 @@ def parse_pdf(path):
     out = {"source_file": path.split("/")[-1], "cover": {}, "provinces": {},
            "locations": {}, "parse_warnings": []}
     with pdfplumber.open(path) as pdf:
-        out["cover"] = parse_cover(pdf.pages[0])
+        # Some CBR PDFs (week 28+) contain every text run twice at identical
+        # coordinates, turning badge '7' into '77' and '1-4' into '11--44'.
+        # dedupe_chars collapses exact-position duplicates; harmless otherwise.
+        out["cover"] = parse_cover(pdf.pages[0].dedupe_chars(tolerance=1))
         for page in pdf.pages[1:]:
+            page = page.dedupe_chars(tolerance=1)
             province, locs = parse_province_page(page, out["parse_warnings"])
             if not province:
                 out["parse_warnings"].append(
