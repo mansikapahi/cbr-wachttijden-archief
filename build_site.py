@@ -161,6 +161,13 @@ h2{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:2.4em 0 0.
 footer{border-top:1px solid var(--lijn);padding:28px 0;font-size:0.85rem;color:#6b6b60}
 footer a{color:#6b6b60}
 .source-note{font-size:0.85rem;color:#6b6b60;margin-top:6px}
+
+/* widgets distribution page */
+.widget-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:20px 0}
+.widget-row{background:var(--wit);border:1px solid var(--lijn);border-radius:6px;padding:14px 16px}
+.widget-row strong{display:block;font-size:0.95rem;margin-bottom:8px}
+.embed-code{background:var(--bg);border:1px solid var(--lijn);border-radius:4px;padding:8px 10px;
+  font-family:var(--mono);font-size:0.72rem;white-space:pre-wrap;word-break:break-all;margin:0}
 @media(max-width:600px){
   h1{font-size:1.6rem}
   .hero{gap:16px}
@@ -354,6 +361,90 @@ er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).</p>
              location_description, body, root="../../"))
 
 
+def build_widget(lslug, entry, out_dir):
+    """A small, self-contained page meant to be loaded in an <iframe> on a
+    rijschool's own site. Deliberately noindexed: it's a near-duplicate of
+    the full location page, and its job is distribution/backlinks, not to
+    rank in search itself."""
+    prov = entry["province"]
+    current = entry["series"].get("wanneer-praktijkexamen", [(None, None, None, "?")])[-1][3]
+    uc = urgency_class(current)
+    latest_iso = entry["series"].get("wanneer-praktijkexamen", [(None,)])[-1][0]
+
+    html = f"""<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Wachttijd {entry['name']} widget</title>
+<style>
+:root{{--groen:#00563F;--oranje:#E85D2F;--inkt:#1A1A1A;--lijn:#DDD8C7;--wit:#FFFDF8;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'IBM Plex Sans',-apple-system,sans-serif;
+  --display:'Fraunces',Georgia,serif}}
+*{{box-sizing:border-box}}
+body{{margin:0;padding:12px;background:var(--wit);color:var(--inkt);font-family:var(--sans)}}
+.card{{border:2px solid var(--inkt);border-radius:8px;padding:14px 16px;max-width:260px}}
+.loc{{font-family:var(--display);font-weight:600;font-size:1rem;margin:0 0 8px}}
+.bord{{display:inline-flex;align-items:baseline;gap:6px;background:var(--wit)}}
+.bord .n{{font-family:var(--display);font-size:2rem;font-weight:600;color:var(--groen)}}
+.bord.lang .n{{color:var(--oranje)}}
+.bord .u{{font-size:0.75rem;color:#6b6b60}}
+.sub{{font-size:0.78rem;color:#6b6b60;margin:6px 0 10px}}
+a.attr{{display:block;font-size:0.72rem;color:#6b6b60;text-decoration:none;border-top:1px solid var(--lijn);padding-top:8px;margin-top:4px}}
+a.attr:hover{{color:var(--groen)}}
+</style>
+</head>
+<body>
+<div class="card">
+  <p class="loc">{entry['name']}</p>
+  <div class="bord {uc}"><span class="n">{current}</span><span class="u">weken<br>wachttijd</span></div>
+  <p class="sub">Praktijkexamen &middot; {prov} &middot; stand {latest_iso or ''}</p>
+  <a class="attr" href="https://rijexamenwachttijden.nl/locatie/{lslug}/" target="_blank" rel="noopener">
+    Bron: rijexamenwachttijden.nl &rarr;
+  </a>
+</div>
+</body>
+</html>"""
+    d = out_dir / "widget" / lslug
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(html)
+
+
+def build_widgets_page(locations, out_dir):
+    """A distribution page listing every location's copy-paste iframe
+    snippet, so rijscholen can grab their own location's embed code."""
+    rows = []
+    for lslug, entry in sorted(locations.items(), key=lambda t: t[1]["name"]):
+        snippet = (
+            f'&lt;iframe src="https://rijexamenwachttijden.nl/widget/{lslug}/" '
+            f'width="280" height="160" style="border:none"&gt;&lt;/iframe&gt;'
+        )
+        rows.append(f"""
+<div class="widget-row">
+  <strong>{entry['name']}</strong>
+  <pre class="embed-code">{snippet}</pre>
+</div>""")
+
+    body = f"""
+<h1>Widget: wachttijd op jouw website</h1>
+<p class="lead">Gratis embed voor rijscholen: toon de actuele CBR-wachttijd van jouw
+locatie direct op je eigen website. Kopieer de code bij jouw plaats en plak die in
+je website-editor (de meeste CMS'en, zoals WordPress, hebben een "HTML-blok" of
+"embed"-optie).</p>
+
+<div class="widget-list">{"".join(rows)}</div>
+
+<p class="source-note">De widget toont automatisch de meest recente wachttijd zodra
+wij die archiveren &mdash; je hoeft niets bij te werken.</p>
+"""
+    (out_dir / "widgets.html").write_text(
+        page("Widget voor rijscholen | rijexamenwachttijden.nl",
+             "Gratis embeddable widget: toon de actuele CBR-wachttijd van jouw "
+             "examenlocatie op je eigen rijschool-website.", body))
+
+
+
 def build_over_page(out_dir):
     body = """
 <h1>Over dit archief</h1>
@@ -392,6 +483,7 @@ def build_sitemap(locations, out_dir):
     urls = [
         f"{SITE_URL}/",
         f"{SITE_URL}/over.html",
+        f"{SITE_URL}/widgets.html",
     ]
     for lslug in locations:
         urls.append(f"{SITE_URL}/locatie/{lslug}/")
@@ -422,9 +514,12 @@ def main():
     build_over_page(DIST)
     for lslug, entry in locations.items():
         build_location_page(lslug, entry, DIST)
+        build_widget(lslug, entry, DIST)
+    build_widgets_page(locations, DIST)
     build_sitemap(locations, DIST)
     build_robots(DIST)
-    print(f"Built {len(locations)} location pages + homepage + over.html + sitemap.xml + robots.txt into dist/")
+    print(f"Built {len(locations)} location pages + {len(locations)} widgets + "
+          f"homepage + over.html + widgets.html + sitemap.xml + robots.txt into dist/")
 
 
 if __name__ == "__main__":
