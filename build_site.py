@@ -155,6 +155,7 @@ h2{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:2.4em 0 0.
 .exam-card .bord .n{font-size:1.8rem}
 .history-table{width:100%;border-collapse:collapse;font-size:0.9rem;margin:8px 0 0}
 .history-table th,.history-table td{text-align:left;padding:6px 10px;border-bottom:1px solid var(--lijn);font-family:var(--mono)}
+.ranking-table td:first-child{color:#6b6b60;width:32px}
 .history-table th{color:#6b6b60;font-weight:600;font-size:0.8rem}
 .crumbs{font-size:0.85rem;margin-bottom:18px}
 .crumbs a{color:#6b6b60}
@@ -191,6 +192,7 @@ HEAD = """<!doctype html>
   <a class="logo" href="{root}index.html">rijexamen<span>wachttijden</span>.nl</a>
   <nav>
     <a href="{root}index.html">Overzicht</a>
+    <a href="{root}kortste-wachttijden.html">Kortste wachttijden</a>
     <a href="{root}over.html">Over dit archief</a>
   </nav>
 </div></header>
@@ -445,6 +447,50 @@ wij die archiveren &mdash; je hoeft niets bij te werken.</p>
 
 
 
+def build_ranking_page(locations, latest_by_exam, out_dir):
+    """Ranks all locations shortest-to-longest wait, per exam type. This is
+    the kind of page people screenshot/share/bookmark on its own, and it's a
+    natural match for high-intent searches like 'kortste wachttijd rijexamen'."""
+    sections = []
+    for slug in EXAM_ORDER:
+        meta = EXAM_META[slug]
+        rows = []
+        entries = []
+        for lslug, entry in locations.items():
+            w = latest_by_exam.get(slug, {}).get(lslug)
+            if w is not None:
+                entries.append((lslug, entry, w))
+        entries.sort(key=lambda t: weeks_sort_key(t[2]))
+
+        for rank, (lslug, entry, w) in enumerate(entries, start=1):
+            uc = urgency_class(w)
+            rows.append(
+                f'<tr><td>{rank}</td>'
+                f'<td><a href="locatie/{lslug}/">{entry["name"]}</a></td>'
+                f'<td>{entry["province"]}</td>'
+                f'<td><span class="pill {uc}">{w} wk</span></td></tr>'
+            )
+        sections.append(f"""
+<h2>{meta['label']} &mdash; kortste wachttijd eerst</h2>
+<table class="history-table ranking-table">
+<tr><th>#</th><th>Locatie</th><th>Provincie</th><th>Wachttijd</th></tr>
+{"".join(rows)}
+</table>""")
+
+    body = f"""
+<h1>Kortste wachttijden CBR-examens</h1>
+<p class="lead">Alle {len(locations)} locaties gerangschikt van kortste naar langste
+wachttijd, per examentype. Bijgewerkt bij elke wekelijkse archivering.</p>
+{"".join(sections)}
+<p class="source-note">Zie ook de <a href="index.html">volledige lijst per provincie</a>
+of <a href="over.html">hoe dit archief werkt</a>.</p>
+"""
+    (out_dir / "kortste-wachttijden.html").write_text(
+        page("Kortste wachttijden CBR-examens | rijexamenwachttijden.nl",
+             "Alle examenlocaties in Nederland gerangschikt van kortste naar langste "
+             "CBR-wachttijd, voor praktijkexamen, herexamen en theorie-examen.", body))
+
+
 def build_over_page(out_dir):
     body = """
 <h1>Over dit archief</h1>
@@ -484,6 +530,7 @@ def build_sitemap(locations, out_dir):
         f"{SITE_URL}/",
         f"{SITE_URL}/over.html",
         f"{SITE_URL}/widgets.html",
+        f"{SITE_URL}/kortste-wachttijden.html",
     ]
     for lslug in locations:
         urls.append(f"{SITE_URL}/locatie/{lslug}/")
@@ -512,6 +559,7 @@ def main():
     locations, latest_by_exam = load_history()
     build_homepage(locations, latest_by_exam, DIST)
     build_over_page(DIST)
+    build_ranking_page(locations, latest_by_exam, DIST)
     for lslug, entry in locations.items():
         build_location_page(lslug, entry, DIST)
         build_widget(lslug, entry, DIST)
