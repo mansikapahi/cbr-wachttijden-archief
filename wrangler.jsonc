@@ -15,6 +15,6 @@
     "FROM_EMAIL": "alerts@rijexamenwachttijden.nl"
   },
   "triggers": {
-    "crons": ["0 9 * * 1"]
+    "crons": ["0 16 * * 1"]
   }
 }
