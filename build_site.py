@@ -163,6 +163,15 @@ footer{border-top:1px solid var(--lijn);padding:28px 0;font-size:0.85rem;color:#
 footer a{color:#6b6b60}
 .source-note{font-size:0.85rem;color:#6b6b60;margin-top:6px}
 
+.alert-signup{background:var(--wit);border:1px solid var(--lijn);border-radius:6px;padding:16px 18px;margin:20px 0}
+.alert-signup h2{font-size:1.05rem;margin:0 0 6px}
+.alert-signup p{margin:0 0 12px;font-size:0.9rem;color:#6b6b60}
+.alert-form{display:flex;gap:8px;flex-wrap:wrap}
+.alert-form input{flex:1;min-width:180px;padding:8px 10px;border:1px solid var(--lijn);border-radius:4px;font-family:var(--sans)}
+.alert-form button{padding:8px 16px;border:1px solid var(--inkt);border-radius:4px;background:var(--inkt);color:var(--wit);cursor:pointer;font-family:var(--sans)}
+.alert-form button:hover{background:var(--groen);border-color:var(--groen)}
+.alert-status{margin-top:8px;font-size:0.85rem;color:var(--groen)}
+
 /* widgets distribution page */
 .widget-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:20px 0}
 .widget-row{background:var(--wit);border:1px solid var(--lijn);border-radius:6px;padding:14px 16px}
@@ -351,10 +360,50 @@ Hieronder het verloop per examentype sinds het begin van dit archief.</p>
 
 <div class="exam-grid">{"".join(exam_cards)}</div>
 
+<div class="alert-signup">
+  <h2>Alert bij verandering</h2>
+  <p>Krijg een e-mail zodra de wachttijd voor {entry['name']} verandert.</p>
+  <form class="alert-form" data-location="{lslug}">
+    <input type="email" name="email" placeholder="jouw@email.nl" required>
+    <button type="submit">Meld me aan</button>
+  </form>
+  <p class="alert-status" hidden></p>
+</div>
+
 {"".join(history_sections)}
 
 <p class="source-note">Bron: CBR, wekelijks gearchiveerd. Definitie: aantal weken tot
 er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).</p>
+
+<script>
+document.querySelectorAll('.alert-form').forEach(function(form) {{
+  form.addEventListener('submit', async function(e) {{
+    e.preventDefault();
+    var status = form.nextElementSibling;
+    var email = form.email.value;
+    var location = form.dataset.location;
+    form.querySelector('button').disabled = true;
+    try {{
+      var res = await fetch('/api/subscribe', {{
+        method: 'POST',
+        headers: {{'content-type': 'application/json'}},
+        body: JSON.stringify({{email: email, location: location}})
+      }});
+      status.hidden = false;
+      if (res.ok) {{
+        status.textContent = 'Check je inbox om je aanmelding te bevestigen.';
+        form.reset();
+      }} else {{
+        status.textContent = 'Er ging iets mis, probeer het later opnieuw.';
+      }}
+    }} catch (err) {{
+      status.hidden = false;
+      status.textContent = 'Er ging iets mis, probeer het later opnieuw.';
+    }}
+    form.querySelector('button').disabled = false;
+  }});
+}});
+</script>
 """
     d = out_dir / "locatie" / lslug
     d.mkdir(parents=True, exist_ok=True)
@@ -553,6 +602,25 @@ def build_robots(out_dir):
     )
 
 
+def build_data_json(locations, latest_by_exam, out_dir):
+    """Machine-readable snapshot the alert Worker reads to compare this
+    week's values against what it last sent alerts for. Kept separate from
+    the HTML build so the Worker never has to parse CSV/HTML."""
+    import json
+    snapshot = {}
+    for lslug, entry in locations.items():
+        snapshot[lslug] = {
+            "name": entry["name"],
+            "province": entry["province"],
+            "weeks": {
+                slug: latest_by_exam.get(slug, {}).get(lslug)
+                for slug in EXAM_ORDER
+                if latest_by_exam.get(slug, {}).get(lslug) is not None
+            },
+        }
+    (out_dir / "data.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=0))
+
+
 def main():
     DIST.mkdir(exist_ok=True)
     (DIST / "style.css").write_text(CSS)
@@ -566,9 +634,11 @@ def main():
     build_widgets_page(locations, DIST)
     build_sitemap(locations, DIST)
     build_robots(DIST)
+    build_data_json(locations, latest_by_exam, DIST)
     print(f"Built {len(locations)} location pages + {len(locations)} widgets + "
-          f"homepage + over.html + widgets.html + sitemap.xml + robots.txt into dist/")
+          f"homepage + over.html + widgets.html + data.json + sitemap.xml + robots.txt into dist/")
 
 
 if __name__ == "__main__":
     main()
+

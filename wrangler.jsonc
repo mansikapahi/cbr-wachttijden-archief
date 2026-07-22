@@ -1,7 +1,20 @@
 {
   "name": "cbr-wachttijden-archief",
   "compatibility_date": "2026-07-15",
+  "main": "worker/alerts.js",
   "assets": {
-    "directory": "dist"
+    "directory": "dist",
+    "binding": "ASSETS"
+  },
+  "kv_namespaces": [
+    { "binding": "SUBSCRIPTIONS", "id": "76b1dbc527a24eada746a558a9fbedaa" },
+    { "binding": "LAST_ALERTED", "id": "87bd83c75ad341daab3d48d9ebc2a404" }
+  ],
+  "vars": {
+    "SITE_URL": "https://rijexamenwachttijden.nl",
+    "FROM_EMAIL": "alerts@rijexamenwachttijden.nl"
+  },
+  "triggers": {
+    "crons": ["0 9 * * 1"]
   }
 }
