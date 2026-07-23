@@ -341,6 +341,28 @@ wachttijden &mdash; een pauze van twee weken tijdens het examenseizoen. Zie
              "theorie-examen per locatie in Nederland.", body))
 
 
+def build_location_csv(lslug, entry, out_dir):
+    """A raw CSV download of this location's full history -- same data as
+    the HTML tables, for anyone who wants to plot/analyze it themselves."""
+    import csv
+    import io
+
+    buf = io.StringIO()
+    writer = csv.writer(buf)
+    writer.writerow(["examtype", "gearchiveerd_iso_week", "cbr_week", "periode", "weken"])
+    for slug in EXAM_ORDER:
+        series = entry["series"].get(slug)
+        if not series:
+            continue
+        label = EXAM_META[slug]["label"]
+        for iso, cw, cp, w in series:
+            writer.writerow([label, iso, cw, cp, w])
+
+    d = out_dir / "locatie" / lslug
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "geschiedenis.csv").write_text(buf.getvalue())
+
+
 def build_location_page(lslug, entry, out_dir):
     prov = entry["province"]
     exam_cards = []
@@ -414,7 +436,8 @@ Hieronder het verloop per examentype sinds het begin van dit archief.</p>
 {"".join(history_sections)}
 
 <p class="source-note">Bron: CBR, wekelijks gearchiveerd. Definitie: aantal weken tot
-er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).</p>
+er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).
+&middot; <a href="geschiedenis.csv" download>Download geschiedenis als CSV</a></p>
 
 <script>
 document.querySelectorAll('.alert-form').forEach(function(form) {{
@@ -555,25 +578,49 @@ def build_ranking_page(locations, latest_by_exam, out_dir):
         for rank, (lslug, entry, w) in enumerate(entries, start=1):
             uc = urgency_class(w)
             rows.append(
-                f'<tr><td>{rank}</td>'
-                f'<td><a href="locatie/{lslug}/">{entry["name"]}</a></td>'
-                f'<td>{entry["province"]}</td>'
-                f'<td><span class="pill {uc}">{w} wk</span></td></tr>'
+                f'<tr><td data-sort-value="{rank}">{rank}</td>'
+                f'<td data-sort-value="{entry["name"].lower()}"><a href="locatie/{lslug}/">{entry["name"]}</a></td>'
+                f'<td data-sort-value="{entry["province"].lower()}">{entry["province"]}</td>'
+                f'<td data-sort-value="{weeks_sort_key(w)}"><span class="pill {uc}">{w} wk</span></td></tr>'
             )
         sections.append(f"""
 <h2>{meta['label']} &mdash; kortste wachttijd eerst</h2>
 <table class="history-table ranking-table">
-<tr><th>#</th><th>Locatie</th><th>Provincie</th><th>Wachttijd</th></tr>
+<tr><th data-col="0">#</th><th data-col="1">Locatie</th><th data-col="2">Provincie</th><th data-col="3">Wachttijd</th></tr>
 {"".join(rows)}
 </table>""")
 
     body = f"""
 <h1>Kortste wachttijden CBR-examens</h1>
 <p class="lead">Alle {len(locations)} locaties gerangschikt van kortste naar langste
-wachttijd, per examentype. Bijgewerkt bij elke wekelijkse archivering.</p>
+wachttijd, per examentype. Bijgewerkt bij elke wekelijkse archivering. Klik op een
+kolomkop om te sorteren.</p>
 {"".join(sections)}
 <p class="source-note">Zie ook de <a href="index.html">volledige lijst per provincie</a>
 of <a href="over.html">hoe dit archief werkt</a>.</p>
+
+<script>
+document.querySelectorAll('.ranking-table').forEach(function(table) {{
+  var headers = table.querySelectorAll('th');
+  headers.forEach(function(th) {{
+    th.style.cursor = 'pointer';
+    var asc = true;
+    th.addEventListener('click', function() {{
+      var col = parseInt(th.dataset.col, 10);
+      var tbody = Array.from(table.querySelectorAll('tr')).slice(1);
+      tbody.sort(function(a, b) {{
+        var va = a.children[col].dataset.sortValue;
+        var vb = b.children[col].dataset.sortValue;
+        var na = parseFloat(va), nb = parseFloat(vb);
+        var cmp = (!isNaN(na) && !isNaN(nb)) ? (na - nb) : va.localeCompare(vb);
+        return asc ? cmp : -cmp;
+      }});
+      tbody.forEach(function(row) {{ table.appendChild(row); }});
+      asc = !asc;
+    }});
+  }});
+}});
+</script>
 """
     (out_dir / "kortste-wachttijden.html").write_text(
         page("Kortste wachttijden CBR-examens | rijexamenwachttijden.nl",
@@ -671,6 +718,7 @@ def main():
     build_ranking_page(locations, latest_by_exam, DIST)
     for lslug, entry in locations.items():
         build_location_page(lslug, entry, DIST)
+        build_location_csv(lslug, entry, DIST)
         build_widget(lslug, entry, DIST)
     build_widgets_page(locations, DIST)
     build_sitemap(locations, DIST)
