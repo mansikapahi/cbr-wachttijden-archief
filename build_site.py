@@ -122,6 +122,12 @@ h2{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:2.4em 0 0.
   padding:14px 18px;border-radius:2px;font-size:0.94rem;margin:0 0 32px}
 .notice strong{color:var(--oranje)}
 
+.search-bar{margin:0 0 20px}
+.search-bar input{width:100%;max-width:360px;padding:10px 14px;border:2px solid var(--inkt);
+  border-radius:4px;font-family:var(--sans);font-size:1rem;background:var(--wit)}
+.search-bar input:focus{outline:none;border-color:var(--groen)}
+.search-empty{margin:14px 0 0;color:#6b6b60;font-size:0.9rem}
+
 /* wachttijdbord: signature badge */
 .bord{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
   background:var(--wit);border:3px solid var(--inkt);border-radius:10px;
@@ -291,8 +297,43 @@ wachttijden &mdash; een pauze van twee weken tijdens het examenseizoen. Zie
 <a href="over.html">over dit archief</a> voor details.
 </div>
 
+<div class="search-bar">
+  <input type="text" id="loc-search" placeholder="Zoek je plaats&hellip;" autocomplete="off">
+  <p id="search-empty" class="search-empty" hidden>Geen locaties gevonden.</p>
+</div>
+
 <h2>Praktijkexamen &mdash; per provincie</h2>
-<div class="provincies">{"".join(cards)}</div>
+<div class="provincies" id="provincies">{"".join(cards)}</div>
+
+<script>
+(function() {{
+  var input = document.getElementById('loc-search');
+  var empty = document.getElementById('search-empty');
+  var provincies = document.querySelectorAll('#provincies .provincie');
+
+  input.addEventListener('input', function() {{
+    var q = input.value.trim().toLowerCase();
+    var anyVisible = false;
+
+    provincies.forEach(function(prov) {{
+      var rows = prov.querySelectorAll('.loc-row');
+      var provHasMatch = false;
+
+      rows.forEach(function(row) {{
+        var name = row.querySelector('a').textContent.toLowerCase();
+        var match = q === '' || name.indexOf(q) !== -1;
+        row.hidden = !match;
+        if (match) provHasMatch = true;
+      }});
+
+      prov.hidden = !provHasMatch;
+      if (provHasMatch) anyVisible = true;
+    }});
+
+    empty.hidden = anyVisible || q === '';
+  }});
+}})();
+</script>
 """
     (out_dir / "index.html").write_text(
         page("Wachttijden CBR-examens per locatie | rijexamenwachttijden.nl",
@@ -641,4 +682,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
