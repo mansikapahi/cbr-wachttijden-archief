@@ -178,6 +178,13 @@ footer a{color:#6b6b60}
 .alert-form button:hover{background:var(--groen);border-color:var(--groen)}
 .alert-status{margin-top:8px;font-size:0.85rem;color:var(--groen)}
 
+.rijschool-list{display:grid;gap:10px;margin:12px 0 6px}
+.rijschool-card{background:var(--wit);border:1px solid var(--lijn);border-radius:6px;padding:12px 16px}
+.rijschool-card strong{display:block;font-size:0.98rem;margin-bottom:4px}
+.rijschool-rating{display:block;font-size:0.85rem;color:#6b6b60}
+.rijschool-contact{display:block;font-size:0.85rem;margin-top:4px}
+.rijschool-contact a{color:var(--groen)}
+
 /* widgets distribution page */
 .widget-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:20px 0}
 .widget-row{background:var(--wit);border:1px solid var(--lijn);border-radius:6px;padding:14px 16px}
@@ -363,7 +370,46 @@ def build_location_csv(lslug, entry, out_dir):
     (d / "geschiedenis.csv").write_text(buf.getvalue())
 
 
-def build_location_page(lslug, entry, out_dir):
+def load_rijscholen():
+    """Optional: data/rijscholen.json maps location slug -> list of driving
+    schools. Missing file or missing location both just mean 'no listing
+    yet' -- this feature degrades gracefully as coverage is filled in."""
+    import json
+    path = DATA / "rijscholen.json"
+    if not path.exists():
+        return {}
+    return json.loads(path.read_text())
+
+
+def build_rijscholen_section(lslug, entry, rijscholen):
+    schools = rijscholen.get(lslug)
+    if not schools:
+        return ""
+
+    cards = []
+    for s in schools[:5]:
+        stars = "\u2605" * round(s.get("rating", 0))
+        contact_bits = []
+        if s.get("phone"):
+            contact_bits.append(f'<a href="tel:{s["phone"].replace(" ", "")}">{s["phone"]}</a>')
+        if s.get("website"):
+            contact_bits.append(f'<a href="{s["website"]}" target="_blank" rel="noopener nofollow">website</a>')
+        cards.append(f"""
+<div class="rijschool-card">
+  <strong>{s['name']}</strong>
+  <span class="rijschool-rating">{stars} {s.get('rating', '?')} &middot; {s.get('reviews', 0)} reviews</span>
+  <span class="rijschool-contact">{' &middot; '.join(contact_bits)}</span>
+</div>""")
+
+    return f"""
+<h2>Rijscholen in {entry['name']}</h2>
+<div class="rijschool-list">{"".join(cards)}</div>
+<p class="source-note">Bron: Google Maps. Geen samenwerking of vergoeding &mdash; gewoon
+een startpunt om een rijschool te vinden.</p>
+"""
+
+
+def build_location_page(lslug, entry, out_dir, rijscholen):
     prov = entry["province"]
     exam_cards = []
     history_sections = []
@@ -432,6 +478,8 @@ Hieronder het verloop per examentype sinds het begin van dit archief.</p>
   </form>
   <p class="alert-status" hidden></p>
 </div>
+
+{build_rijscholen_section(lslug, entry, rijscholen)}
 
 {"".join(history_sections)}
 
@@ -713,11 +761,12 @@ def main():
     DIST.mkdir(exist_ok=True)
     (DIST / "style.css").write_text(CSS)
     locations, latest_by_exam = load_history()
+    rijscholen = load_rijscholen()
     build_homepage(locations, latest_by_exam, DIST)
     build_over_page(DIST)
     build_ranking_page(locations, latest_by_exam, DIST)
     for lslug, entry in locations.items():
-        build_location_page(lslug, entry, DIST)
+        build_location_page(lslug, entry, DIST, rijscholen)
         build_location_csv(lslug, entry, DIST)
         build_widget(lslug, entry, DIST)
     build_widgets_page(locations, DIST)
