@@ -1,0 +1,1160 @@
+{
+  "utrecht": [
+    {
+      "name": "Mijn Rijschool Utrecht",
+      "rating": 4.9,
+      "reviews": 458,
+      "phone": "+31 30 227 0959",
+      "website": "https://mijnrijschoolutrecht.nl"
+    }
+  ],
+  "nijmegen": [
+    {
+      "name": "Rijschool NivoXL",
+      "rating": 4.8,
+      "reviews": 553,
+      "phone": "+31 6 10559944",
+      "website": "https://nivoxl.nl"
+    }
+  ],
+  "leiden": [
+    {
+      "name": "Rijschool Bouda",
+      "rating": 5.0,
+      "reviews": 1139,
+      "phone": "+31 6 11239091",
+      "website": "https://rijschoolbouda.nl"
+    }
+  ],
+  "apeldoorn": [
+    {
+      "name": "Verkeersschool Rijvlot",
+      "rating": 5.0,
+      "reviews": 768,
+      "phone": "+31 55 203 2310",
+      "website": "https://rijvlot.nl"
+    }
+  ],
+  "alkmaar": [
+    {
+      "name": "Cobi Rijschool",
+      "rating": 5.0,
+      "reviews": 608,
+      "phone": "+31 6 46337616",
+      "website": "https://cobirijschool.nl"
+    }
+  ],
+  "almelo": [
+    {
+      "name": "Rijschool Ugurel Almelo",
+      "rating": 5,
+      "reviews": 138,
+      "phone": "06 87481470",
+      "website": "http://www.autorijschoolugurel.nl/"
+    },
+    {
+      "name": "Rijschool Raphael",
+      "rating": 5,
+      "reviews": 39,
+      "phone": "06 14203655",
+      "website": "https://rijschoolraphael.nl/"
+    },
+    {
+      "name": "Autorijschool Reichwein",
+      "rating": 5,
+      "reviews": 79,
+      "phone": "06 16111293",
+      "website": "https://www.autorijschool-reichwein.nl/"
+    }
+  ],
+  "amsterdam": [
+    {
+      "name": "Rijschool Amsterdam",
+      "rating": 5,
+      "reviews": 531,
+      "phone": "020 238 9555",
+      "website": "https://www.rijschoolamsterdam.nl/"
+    },
+    {
+      "name": "Amsterdamse VerkeersOpleidingen",
+      "rating": 4.9,
+      "reviews": 1064,
+      "phone": "020 260 1300",
+      "website": "http://www.avoweb.nl/"
+    },
+    {
+      "name": "Amsterdam Rijbewijs Service",
+      "rating": 4.9,
+      "reviews": 308,
+      "phone": "06 53115867",
+      "website": "http://www.amsterdamrijbewijsservice.nl/"
+    }
+  ],
+  "arnhem": [
+    {
+      "name": "Rijschool Hans Joosten",
+      "rating": 4.9,
+      "reviews": 1390,
+      "phone": "026 323 6045",
+      "website": "http://www.hansjoosten.nl/"
+    },
+    {
+      "name": "Falcon Rijschool",
+      "rating": 4.9,
+      "reviews": 1110,
+      "phone": "06 58822132",
+      "website": "http://www.falconrijschool.nl/"
+    },
+    {
+      "name": "Rijschool Arnhem | Drivingstudent | Auto, Motor, Bromfiets en Aanhanger",
+      "rating": 5,
+      "reviews": 409,
+      "phone": "06 28950858",
+      "website": "https://drivingstudent.nl/"
+    }
+  ],
+  "assen": [
+    {
+      "name": "Rijschool Caspian",
+      "rating": 5,
+      "reviews": 369,
+      "phone": "06 52257072",
+      "website": "http://www.rijschoolcaspian.nl/"
+    },
+    {
+      "name": "Rijschool Tom Assen",
+      "rating": 5,
+      "reviews": 195,
+      "phone": "06 34128670",
+      "website": "http://www.rijschooltom.nl/"
+    },
+    {
+      "name": "Autorijschool Herlaar Assen",
+      "rating": 5,
+      "reviews": 308,
+      "phone": "06 41315414",
+      "website": "http://www.autorijschool-herlaar.nl/"
+    }
+  ],
+  "barendrecht": [
+    {
+      "name": "Driving School CHILL",
+      "rating": 4.9,
+      "reviews": 206,
+      "phone": "06 44762323",
+      "website": "http://www.rijschoolchill.nl/"
+    },
+    {
+      "name": "Verkeersschool Barendrecht",
+      "rating": 4.2,
+      "reviews": 5,
+      "phone": "06 54320425",
+      "website": "https://www.verkeersschoolbarendrecht.nl/verkeersschool-barendrecht-goedkope-rijlessen-2/"
+    },
+    {
+      "name": "Verkeersschool Vrijenburg",
+      "rating": 4.9,
+      "reviews": 223,
+      "phone": "06 43023162",
+      "website": "http://www.verkeersschoolvrijenburg.nl/"
+    }
+  ],
+  "bergen-op-zoom": [
+    {
+      "name": "Autorijschool Jack",
+      "rating": 5,
+      "reviews": 605,
+      "phone": "06 52504593",
+      "website": "https://www.autorijschooljack.nl/"
+    },
+    {
+      "name": "Rijschool Bergen op Zoom - Carla Hagens",
+      "rating": 4.9,
+      "reviews": 73,
+      "phone": "06 20944122",
+      "website": "http://www.carlahagens.nl/"
+    },
+    {
+      "name": "Bergse Rijschool Mark Oerlemans",
+      "rating": 4.9,
+      "reviews": 153,
+      "phone": "06 21887320",
+      "website": "http://rijschoolmarkoerlemans.nl/"
+    }
+  ],
+  "berkel-enschot": [
+    {
+      "name": "Het Verkeershuis",
+      "rating": 5,
+      "reviews": 28,
+      "phone": "06 22421035",
+      "website": "http://www.hetverkeershuis.nl/"
+    },
+    {
+      "name": "Autorijschool Het Begin",
+      "rating": 4.6,
+      "reviews": 10,
+      "phone": "06 19531330",
+      "website": "http://www.rijschool-hetbegin.nl/"
+    },
+    {
+      "name": "Autorijschool Highlevel",
+      "rating": 5,
+      "reviews": 156,
+      "phone": "06 54724892",
+      "website": "http://www.rijschoolhighlevel.nl/"
+    }
+  ],
+  "breda": [
+    {
+      "name": "Rijschool Breda",
+      "rating": 5,
+      "reviews": 19,
+      "phone": "085 820 0913",
+      "website": "https://rijschoolbreda.nl/"
+    },
+    {
+      "name": "Driving School Riffi",
+      "rating": 4.9,
+      "reviews": 859,
+      "phone": "085 744 4770",
+      "website": "https://www.riffi.nl/"
+    },
+    {
+      "name": "Rijschool Breda Besure (Motor, Scooter, Auto & Aanhangwagen)",
+      "rating": 4.9,
+      "reviews": 491,
+      "phone": "085 877 1389",
+      "website": "https://rijschoolbesure.nl/"
+    }
+  ],
+  "den-bosch": [
+    {
+      "name": "Rijschool Asro",
+      "rating": 4.9,
+      "reviews": 131,
+      "phone": "06 58969123",
+      "website": "http://www.rijschoolasro.nl/"
+    },
+    {
+      "name": "Verkeersschool M van Heugten - Rijschool Den Bosch - Auto - Motor - Scooter - Aanhangwagen - Theorie in 1 dag",
+      "rating": 4.9,
+      "reviews": 74,
+      "phone": "06 43404288",
+      "website": "http://www.verkeersschoolmvanheugten.nl/"
+    },
+    {
+      "name": "Rijschool Den Bosch SPEED",
+      "rating": 4.2,
+      "reviews": 84,
+      "phone": "073 260 0303",
+      "website": "https://rijschool-speed.nl/rijles-den-bosch/"
+    }
+  ],
+  "den-helder": [
+    {
+      "name": "Verkeersschool Bliksem",
+      "rating": 4.9,
+      "reviews": 549,
+      "phone": "06 28806706",
+      "website": "https://rijschoolbliksem.nl/"
+    },
+    {
+      "name": "Rijschool Anders",
+      "rating": 5,
+      "reviews": 287,
+      "phone": "06 21236955",
+      "website": "http://www.rijschoolanders.nl/"
+    },
+    {
+      "name": "Auto- en Motorrijschool Westerhuis",
+      "rating": 4.9,
+      "reviews": 44,
+      "phone": "0223 612 328",
+      "website": "https://rijschoolwesterhuis.nl/"
+    }
+  ],
+  "deventer": [
+    {
+      "name": "Joop Hagen Verkeersschool",
+      "rating": 4.3,
+      "reviews": 338,
+      "phone": "0570 635 036",
+      "website": "http://www.joophagen.nl/"
+    },
+    {
+      "name": "Driving School Salland",
+      "rating": 4.8,
+      "reviews": 170,
+      "phone": "0570 789 022",
+      "website": "https://rijschoolsalland.nl/"
+    },
+    {
+      "name": "Rijschool Deventer Sure to Pass",
+      "rating": 5,
+      "reviews": 127,
+      "phone": "06 55232950",
+      "website": "https://www.suretopass.nl/"
+    }
+  ],
+  "doetinchem": [
+    {
+      "name": "Rijschool Kenger",
+      "rating": 5,
+      "reviews": 295,
+      "phone": "06 57104313",
+      "website": "http://www.rijschoolkenger.nl/"
+    },
+    {
+      "name": "Rijschool Klap",
+      "rating": 4.9,
+      "reviews": 180,
+      "phone": "06 13304799",
+      "website": "http://www.rijschoolklap.nl/"
+    },
+    {
+      "name": "Rijschool Dichteren",
+      "rating": 4.9,
+      "reviews": 147,
+      "phone": "06 45254776",
+      "website": "http://www.rijschool-dichteren.nl/"
+    }
+  ],
+  "dordrecht": [
+    {
+      "name": "Rijschool Dordrecht",
+      "rating": 5,
+      "reviews": 80,
+      "phone": "06 81795053",
+      "website": "http://www.rijschooldordrecht.nl/"
+    },
+    {
+      "name": "martinique",
+      "rating": 4.9,
+      "reviews": 467,
+      "phone": "06 51218503",
+      "website": "http://www.autorijschool-papendrecht.com/"
+    },
+    {
+      "name": "Easy",
+      "rating": 4.7,
+      "reviews": 144,
+      "phone": "06 14997023",
+      "website": "http://www.easyrijschool.nl/"
+    }
+  ],
+  "eemnes": [
+    {
+      "name": "Rapido",
+      "rating": 5,
+      "reviews": 1,
+      "phone": "035 538 2360",
+      "website": "http://rijschoolrapido.nl/"
+    },
+    {
+      "name": "Steenman Rijopleiding - Eemnes",
+      "rating": 5,
+      "reviews": 1,
+      "phone": "06 20456738",
+      "website": "https://steenmanrijopleiding.nl/"
+    },
+    {
+      "name": "ScooterRijbewijsPro",
+      "rating": 5,
+      "reviews": 2,
+      "phone": "06 39330273",
+      "website": "https://www.scooterrijbewijspro.nl/"
+    }
+  ],
+  "eindhoven": [
+    {
+      "name": "Rijschool Kwaliteit JR B.V.",
+      "rating": 4.8,
+      "reviews": 951,
+      "phone": "040 303 5154",
+      "website": "https://rijschoolkwaliteiteindhoven.nl/"
+    },
+    {
+      "name": "Autorijschool Eindhoven",
+      "rating": 5,
+      "reviews": 194,
+      "phone": "06 41447282",
+      "website": "https://autorijschooleindhoven.com/"
+    },
+    {
+      "name": "Automaat rijles Eindhoven",
+      "rating": 4.9,
+      "reviews": 216,
+      "phone": "06 23315037",
+      "website": "https://www.rs-solid.nl/"
+    }
+  ],
+  "emmeloord": [
+    {
+      "name": "Rijschool Wattel Emmeloord",
+      "rating": 4.8,
+      "reviews": 44,
+      "phone": "0527 699 996",
+      "website": "http://www.wattel.nl/"
+    },
+    {
+      "name": "Rijschool Your Choice",
+      "rating": 4.9,
+      "reviews": 66,
+      "phone": "06 12081366",
+      "website": "http://rijschoolyourchoice.nl/"
+    },
+    {
+      "name": "Autorijschool Bakker Emmeloord",
+      "rating": 4.9,
+      "reviews": 24,
+      "phone": "06 83050836",
+      "website": "https://www.autorijschoolbakker.com/?utm_source=google-my-business&utm_medium=referral&utm_campaign=google-my-business"
+    }
+  ],
+  "emmen": [
+    {
+      "name": "Yes! Drive",
+      "rating": 4.8,
+      "reviews": 209,
+      "phone": "06 41827306",
+      "website": "https://yesdrive.nl/"
+    },
+    {
+      "name": "Rijschool Marco",
+      "rating": 4.9,
+      "reviews": 62,
+      "phone": "06 53764379",
+      "website": "https://rijschoolmarco.jimdosite.com/"
+    },
+    {
+      "name": "Rijschool Voskuil",
+      "rating": 5,
+      "reviews": 34,
+      "phone": "0591 547 650",
+      "website": "http://www.rijschoolvoskuil.nl/"
+    }
+  ],
+  "goes": [
+    {
+      "name": "Rijschool Goes",
+      "rating": 4.4,
+      "reviews": 21,
+      "phone": "06 46390900",
+      "website": "http://www.rijschoolgoes.nl/"
+    },
+    {
+      "name": "Hoogesteger Rijschool",
+      "rating": 4.7,
+      "reviews": 58,
+      "phone": "0113 268 023",
+      "website": "http://www.hoogestegerrijschool.nl/"
+    },
+    {
+      "name": "Rijschool Delta",
+      "rating": 5,
+      "reviews": 88,
+      "phone": "06 39252569",
+      "website": "https://rijschooldelta.nl/"
+    }
+  ],
+  "gouda": [
+    {
+      "name": "Drivingschool Gouda vd-haven",
+      "rating": 4.9,
+      "reviews": 305,
+      "phone": "06 10378528",
+      "website": "http://www.vd-haven.nl/"
+    },
+    {
+      "name": "rijschool gouda/ rijschoolsimia",
+      "rating": 4.7,
+      "reviews": 57,
+      "phone": "06 22737346",
+      "website": "http://www.rijschoolsimia.nl/"
+    },
+    {
+      "name": "Rijschool Gouda, Reeuwijk, Waddinxveen, Bodegraven",
+      "rating": 4.9,
+      "reviews": 202,
+      "phone": "06 40061569",
+      "website": "http://www.rijschoolmaraya.nl/"
+    }
+  ],
+  "groningen": [
+    {
+      "name": "City Driving School",
+      "rating": 4.6,
+      "reviews": 227,
+      "phone": "050 205 3434",
+      "website": "https://www.rijschoolcity.nl/"
+    },
+    {
+      "name": "City-Drive",
+      "rating": 4.9,
+      "reviews": 186,
+      "phone": "06 17455727",
+      "website": "http://www.city-drive.nl/"
+    },
+    {
+      "name": "Rijschool CorenRon",
+      "rating": 4.9,
+      "reviews": 63,
+      "phone": "06 34836200",
+      "website": "https://rijschoolcorenron.nl/"
+    }
+  ],
+  "haarlem": [
+    {
+      "name": "Rijschool 023",
+      "rating": 5,
+      "reviews": 611,
+      "phone": "023 234 0023",
+      "website": "https://rijschool023.nl/"
+    },
+    {
+      "name": "Driving School Kennemerland",
+      "rating": 4.8,
+      "reviews": 1120,
+      "phone": "023 538 4442",
+      "website": "http://www.rijschoolkennemerland.nl/"
+    },
+    {
+      "name": "rijschool haarlem",
+      "rating": 5,
+      "reviews": 39,
+      "phone": "06 12222222",
+      "website": "https://www.rijschool-haarlem.nl/"
+    }
+  ],
+  "harderwijk": [
+    {
+      "name": "Rijschool Stam Harderwijk",
+      "rating": 5,
+      "reviews": 179,
+      "phone": "06 55547859",
+      "website": "http://www.rijschoolstam.nl/"
+    },
+    {
+      "name": "Rijschool Zegers Harderwijk",
+      "rating": 5,
+      "reviews": 62,
+      "phone": "0341 769 080",
+      "website": "https://www.rijschoolzegers.nl/"
+    },
+    {
+      "name": "Verkeersschool Suus",
+      "rating": 4.9,
+      "reviews": 72,
+      "phone": "06 40982827",
+      "website": "http://verkeersschoolsuus.nl/"
+    }
+  ],
+  "heerenveen": [
+    {
+      "name": "Hielkema",
+      "rating": 3.7,
+      "reviews": 70,
+      "phone": "0513 624 204",
+      "website": "http://www.hielkema-verkeersschool.nl/"
+    },
+    {
+      "name": "Rijlesschool",
+      "rating": 5,
+      "reviews": 21,
+      "phone": "06 19710202",
+      "website": "https://www.rijlesschool.nl/"
+    },
+    {
+      "name": "Auto- en Motorrijschool Lammert Visser",
+      "rating": 4.6,
+      "reviews": 76,
+      "phone": "06 53658525",
+      "website": "http://www.rijschool-lammertvisser.nl/"
+    }
+  ],
+  "hengelo": [
+    {
+      "name": "Rijschool Appie",
+      "rating": 4.9,
+      "reviews": 168,
+      "phone": "06 14987999",
+      "website": "http://www.rijschoolappie.nl/"
+    },
+    {
+      "name": "Rijschool Twente",
+      "rating": 5,
+      "reviews": 10,
+      "phone": "06 24661199",
+      "website": "https://rijschooltwente.nl/"
+    },
+    {
+      "name": "Rijschool Attent Hengelo",
+      "rating": 5,
+      "reviews": 36,
+      "phone": "06 11830407",
+      "website": "https://www.rijschoolattenthengelo.nl/"
+    }
+  ],
+  "hoogeveen": [
+    {
+      "name": "Autorijschool Avak",
+      "rating": 5,
+      "reviews": 150,
+      "phone": "06 16421987",
+      "website": "http://www.autorijschoolavak.nl/"
+    },
+    {
+      "name": "Rijschool Marwa",
+      "rating": 5,
+      "reviews": 89,
+      "phone": "06 19991191",
+      "website": "http://rijschoolmarwa.nl/"
+    },
+    {
+      "name": "Rijschool Hoogeveen",
+      "rating": 5,
+      "reviews": 11,
+      "phone": "06 44440515",
+      "website": "https://rijschoolhoogeveen.com/"
+    }
+  ],
+  "hoorn": [
+    {
+      "name": "Rijschool Erik Snip Zwaag - Hoorn",
+      "rating": 5,
+      "reviews": 247,
+      "phone": "06 48088248",
+      "website": "http://www.rijschooleriksnip.nl/"
+    },
+    {
+      "name": "Rijschoolhenco",
+      "rating": 5,
+      "reviews": 152,
+      "phone": "06 30123444",
+      "website": "https://www.rijschoolhenco.nl/"
+    },
+    {
+      "name": "Rijschool Nr 1",
+      "rating": 5,
+      "reviews": 115,
+      "phone": "06 41714137",
+      "website": "https://www.rijschoolnr1.nl/"
+    }
+  ],
+  "kerkrade": [
+    {
+      "name": "Verkeersschool Babs America",
+      "rating": 4.3,
+      "reviews": 6,
+      "phone": "06 33047741",
+      "website": "https://babsamerica.nl/"
+    },
+    {
+      "name": "Verkeersschool Sandra",
+      "rating": 4.2,
+      "reviews": 10,
+      "phone": "06 29042934",
+      "website": "http://www.verkeersschoolsandra.nl/"
+    },
+    {
+      "name": "Rijschool Samira",
+      "rating": 4.6,
+      "reviews": 20,
+      "phone": "06 38037995",
+      "website": "http://www.rijschoolsamira.nl/"
+    }
+  ],
+  "leeuwarden": [
+    {
+      "name": "Rijschool Bakker Leeuwarden",
+      "rating": 4.9,
+      "reviews": 98,
+      "phone": "06 29626829",
+      "website": "https://www.rijschool-bakker.nl/"
+    },
+    {
+      "name": "Autorijschool Vlietstra",
+      "rating": 5,
+      "reviews": 62,
+      "phone": "058 267 3302",
+      "website": "http://www.autorijschool-vlietstra.nl/"
+    },
+    {
+      "name": "Autorijschool Bas",
+      "rating": 5,
+      "reviews": 80,
+      "phone": "06 20932307",
+      "website": "http://www.autorijschoolbas.nl/"
+    }
+  ],
+  "leusden": [
+    {
+      "name": "Rijschool Rij-Klaar Leusden",
+      "rating": 5,
+      "reviews": 90,
+      "phone": "06 26895180",
+      "website": "https://www.rij-klaar.nl/"
+    },
+    {
+      "name": "Autorijschool TonTon",
+      "rating": 5,
+      "reviews": 76,
+      "phone": "06 10982273",
+      "website": "http://www.autorijschooltonton.nl/"
+    },
+    {
+      "name": "Amir De Koning",
+      "rating": 4.6,
+      "reviews": 54,
+      "phone": "06 48746716",
+      "website": "http://rijschoolamirdekoning.nl/"
+    }
+  ],
+  "maastricht": [
+    {
+      "name": "autorijschool in maastricht",
+      "rating": 5,
+      "reviews": 25,
+      "phone": "06 49556655",
+      "website": "http://www.autorijschoolinmaastricht.nl/"
+    },
+    {
+      "name": "Rijschool Easy",
+      "rating": 5,
+      "reviews": 160,
+      "phone": "06 11717340",
+      "website": "http://www.rijschooleasymaastricht.nl/"
+    },
+    {
+      "name": "Autorijschool Jos Janssen",
+      "rating": 5,
+      "reviews": 94,
+      "phone": "06 38727731",
+      "website": "https://www.autorijschooljosjanssen.nl/"
+    }
+  ],
+  "meppel": [
+    {
+      "name": "Rijschool De Rijmeester",
+      "rating": 4.9,
+      "reviews": 147,
+      "phone": "06 14181561",
+      "website": "https://derijmeester.nl/"
+    },
+    {
+      "name": "Rijschool Eigenweg",
+      "rating": 4.9,
+      "reviews": 155,
+      "phone": "06 15313783",
+      "website": "https://rijschooleigenweg.nl/"
+    },
+    {
+      "name": "Rijschool Nieuwenhuis",
+      "rating": 5,
+      "reviews": 166,
+      "phone": "06 39491280",
+      "website": "http://www.rijschoolnieuwenhuis.nl/"
+    }
+  ],
+  "mierlo": [
+    {
+      "name": "Rijles Mierlo",
+      "rating": 5,
+      "reviews": 31,
+      "phone": "06 15174951",
+      "website": "http://rijles-mierlo.nl/"
+    },
+    {
+      "name": "Autorijschool Maarten Duffhuis",
+      "rating": 4.4,
+      "reviews": 38,
+      "phone": "06 46246452",
+      "website": "http://www.rijschoolmaarten.nl/"
+    },
+    {
+      "name": "Autorijschool-VOS",
+      "rating": 5,
+      "reviews": 26,
+      "phone": "06 28474300",
+      "website": "http://www.autorijschool-vos.nl/"
+    }
+  ],
+  "rijswijk": [
+    {
+      "name": "Rijschool Rijswijk",
+      "rating": 3.8,
+      "reviews": 21,
+      "phone": "070 752 0608",
+      "website": "https://rijschoolrijswijk.nl/"
+    },
+    {
+      "name": "Rijschool Campus Auto en Motorrijschool Rijswijk",
+      "rating": 4.9,
+      "reviews": 291,
+      "phone": "06 21688024",
+      "website": "https://rijschoolcampus.nl/rijschool-rijswijk/"
+    },
+    {
+      "name": "Grow Rijopleidingen Rijswijk",
+      "rating": 4.3,
+      "reviews": 243,
+      "phone": "085 084 8820",
+      "website": "https://www.growrijopleidingen.nl/rijscholen/rijswijk/?utm_source=google&utm_medium=gmb&utm_campaign=grow-rijopleidingen"
+    }
+  ],
+  "roermond": [
+    {
+      "name": "rijschool Voordelig",
+      "rating": 4.8,
+      "reviews": 248,
+      "phone": "06 50297658",
+      "website": "https://www.rijschoolvoordelig.nl/"
+    },
+    {
+      "name": "Rijschool Fair",
+      "rating": 5,
+      "reviews": 225,
+      "phone": "06 41814910",
+      "website": "https://rijschoolfair.nl/"
+    },
+    {
+      "name": "Rijschool Roermond t.h.o.d.n. DriveYou",
+      "rating": 5,
+      "reviews": 14,
+      "phone": "06 20850009",
+      "website": "https://www.driveyou.nl/instructeur/brian-cabollet"
+    }
+  ],
+  "rotterdam": [
+    {
+      "name": "Driving School HERS",
+      "rating": 4.9,
+      "reviews": 2622,
+      "phone": "010 265 1239",
+      "website": "https://rijschoolhers.nl/"
+    },
+    {
+      "name": "De Rijscholen Concurrent",
+      "rating": 4.9,
+      "reviews": 1243,
+      "phone": "010 437 2577",
+      "website": "https://www.derijscholenconcurrent.nl/"
+    },
+    {
+      "name": "rijschool rotterdam | Rijlessen in Rotterdam (Tip)",
+      "rating": 5,
+      "reviews": 46,
+      "phone": "06 41450215",
+      "website": "http://www.rijschoolrotterdam.nl/"
+    }
+  ],
+  "schelluinen": [
+    {
+      "name": "Verkeersschool de Jong Groep B.V.",
+      "rating": 4.9,
+      "reviews": 57,
+      "phone": "0183 820 248",
+      "website": "http://www.verkeersschooldejong.nl/"
+    }
+  ],
+  "sneek": [
+    {
+      "name": "Rijschool Eddie Sneek B.V.",
+      "rating": 4.9,
+      "reviews": 305,
+      "phone": "06 40199642",
+      "website": "http://www.rijschooleddiesneek.nl/"
+    },
+    {
+      "name": "Autorijschool Isidora Sneek",
+      "rating": 4.8,
+      "reviews": 110,
+      "phone": "0515 419 093",
+      "website": "https://www.rijschoolisidora.nl/"
+    },
+    {
+      "name": "Rijschool FOKKE",
+      "rating": 4.9,
+      "reviews": 109,
+      "phone": "06 34884558",
+      "website": "https://www.rijschoolfokke.nl/"
+    }
+  ],
+  "spijkenisse": [
+    {
+      "name": "Autorijschool Maaswijk",
+      "rating": 4.9,
+      "reviews": 1069,
+      "phone": "0181 641 674",
+      "website": "https://autorijschoolmaaswijk.nl/"
+    },
+    {
+      "name": "Autorijschool Botlek",
+      "rating": 4.9,
+      "reviews": 99,
+      "phone": "0181 629 519",
+      "website": "https://www.autorijschoolbotlek.nl/"
+    },
+    {
+      "name": "Rijschool Spijkenisse XXL",
+      "rating": 4.9,
+      "reviews": 248,
+      "phone": "06 26806914",
+      "website": "http://www.rijschoolxxl.nl/"
+    }
+  ],
+  "terneuzen": [
+    {
+      "name": "Driving School Tinus",
+      "rating": 4,
+      "reviews": 41,
+      "phone": "0115 785 417",
+      "website": "http://www.rijschooltinus.nl/"
+    },
+    {
+      "name": "Autorijschool firma Chris Roelse",
+      "rating": 3.8,
+      "reviews": 29,
+      "phone": "0115 611 413",
+      "website": "http://www.chrisroelse.nl/"
+    },
+    {
+      "name": "Rijschool Rene Vink",
+      "rating": 5,
+      "reviews": 4,
+      "phone": "06 40776998",
+      "website": "https://www.rijschoolrenevink.nl/"
+    }
+  ],
+  "tiel": [
+    {
+      "name": "[TIP] Rijschool Tiel | Rijschool-tiel.nl",
+      "rating": 5,
+      "reviews": 88,
+      "phone": "06 14749573",
+      "website": "http://www.rijschool-tiel.nl/"
+    },
+    {
+      "name": "Autorijschool Mario van Soelen",
+      "rating": 4.8,
+      "reviews": 70,
+      "phone": "0344 600 777",
+      "website": "http://mariovansoelen.nl/"
+    },
+    {
+      "name": "Driving School Betuwe",
+      "rating": 4.9,
+      "reviews": 15,
+      "phone": "06 55834474",
+      "website": "https://rijschooldebetuwe.nl/"
+    }
+  ],
+  "urmond": [
+    {
+      "name": "Verkeersschool Sofya",
+      "rating": 5,
+      "reviews": 153,
+      "phone": "06 23422466",
+      "website": "https://verkeersschool-sofya.nl/"
+    },
+    {
+      "name": "Rijschool Huisman",
+      "rating": 4,
+      "reviews": 5,
+      "phone": "06 27451070",
+      "website": "http://www.rijschoolhuisman.nl/"
+    },
+    {
+      "name": "Autorijschool Kyra",
+      "rating": 5,
+      "reviews": 28,
+      "phone": "06 36469177",
+      "website": "http://autorijschoolkyra.nl/"
+    }
+  ],
+  "venlo": [
+    {
+      "name": "Joshan",
+      "rating": 5,
+      "reviews": 327,
+      "phone": null,
+      "website": "http://joshan.nl/"
+    },
+    {
+      "name": "verkeersschool De Bruijn",
+      "rating": 4.8,
+      "reviews": 38,
+      "phone": "077 354 7807",
+      "website": "http://www.verkeersschooldebruijn.nl/"
+    },
+    {
+      "name": "Grow Rijopleidingen Venlo",
+      "rating": 4.8,
+      "reviews": 71,
+      "phone": "077 707 8181",
+      "website": "https://www.growrijopleidingen.nl/rijscholen/venlo/?utm_source=google&utm_medium=gmb&utm_campaign=grow-rijopleidingen"
+    }
+  ],
+  "venlo-blerick": [
+    {
+      "name": "Verkeersschool Ruud Rutten B.V.",
+      "rating": 4.6,
+      "reviews": 62,
+      "phone": "077 382 1984",
+      "website": "https://www.ruudrutten.nl/"
+    },
+    {
+      "name": "Joshan",
+      "rating": 5,
+      "reviews": 327,
+      "phone": null,
+      "website": "http://joshan.nl/"
+    },
+    {
+      "name": "Grow Rijopleidingen Venlo",
+      "rating": 4.8,
+      "reviews": 71,
+      "phone": "077 707 8181",
+      "website": "https://www.growrijopleidingen.nl/rijscholen/venlo/?utm_source=google&utm_medium=gmb&utm_campaign=grow-rijopleidingen"
+    }
+  ],
+  "vlissingen": [
+    {
+      "name": "Rijschool RijZeker",
+      "rating": 4.9,
+      "reviews": 98,
+      "phone": "0118 236 033",
+      "website": "https://www.rijschoolrijzeker.nl/"
+    },
+    {
+      "name": "Rijschool Rij-Slim",
+      "rating": 5,
+      "reviews": 78,
+      "phone": "06 38916966",
+      "website": "https://rij-slim.nl/"
+    },
+    {
+      "name": "Rijbewijsteam",
+      "rating": 4.6,
+      "reviews": 41,
+      "phone": "0118 440 404",
+      "website": "http://www.rijbewijsteam.nl/"
+    }
+  ],
+  "weert": [
+    {
+      "name": "Auto -en Motorrijschool Michael Gijsberts",
+      "rating": 5,
+      "reviews": 94,
+      "phone": "06 52601720",
+      "website": "http://www.michaelgijsberts.nl/"
+    },
+    {
+      "name": "RIJschool SEQure",
+      "rating": 4.9,
+      "reviews": 78,
+      "phone": "06 10888030",
+      "website": "http://www.rijschoolsequre.nl/"
+    },
+    {
+      "name": "Autorijschool YouToo",
+      "rating": 5,
+      "reviews": 147,
+      "phone": "06 39113302",
+      "website": "http://www.rijschoolyoutoo.nl/"
+    }
+  ],
+  "winschoten": [
+    {
+      "name": "Folkers Rijopleidingen",
+      "rating": 4.8,
+      "reviews": 260,
+      "phone": "0599 332 560",
+      "website": "http://www.folkersrijopleidingen.nl/"
+    },
+    {
+      "name": "1-2 Drive",
+      "rating": 4.2,
+      "reviews": 106,
+      "phone": "050 360 0060",
+      "website": "http://www.1-2drive.nl/"
+    },
+    {
+      "name": "Verkeersschool Schuringa",
+      "rating": 4.6,
+      "reviews": 40,
+      "phone": "0597 422 911",
+      "website": "http://www.verkeersschoolschuringa.nl/"
+    }
+  ],
+  "zaandam": [
+    {
+      "name": "school J&A",
+      "rating": 5,
+      "reviews": 176,
+      "phone": "06 25097070",
+      "website": "http://www.rijschoolja.nl/"
+    },
+    {
+      "name": "Rijschool Beter",
+      "rating": 4.9,
+      "reviews": 384,
+      "phone": "06 48871433",
+      "website": "http://www.rijschoolbeter.nl/"
+    },
+    {
+      "name": "De Rijacademie",
+      "rating": 4.9,
+      "reviews": 143,
+      "phone": "06 13993005",
+      "website": "https://www.derijacademie.nl/"
+    }
+  ],
+  "zoetermeer": [
+    {
+      "name": "Rijschool-Zoetermeer",
+      "rating": 4.9,
+      "reviews": 243,
+      "phone": "06 83804564",
+      "website": "http://www.rijschool-zoetermeer.nl/"
+    },
+    {
+      "name": "rijschool koot on the road",
+      "rating": 5,
+      "reviews": 321,
+      "phone": "06 20436660",
+      "website": "https://kootontheroad.nl/"
+    },
+    {
+      "name": "A-One rijschool Zoetermeer",
+      "rating": 4.9,
+      "reviews": 117,
+      "phone": "079 320 0668",
+      "website": "http://www.a1-rijschool.nl/"
+    }
+  ],
+  "zwolle": [
+    {
+      "name": "Rijschool Zwolles",
+      "rating": 4.9,
+      "reviews": 192,
+      "phone": "06 12954214",
+      "website": "https://www.zwolles.nl/"
+    },
+    {
+      "name": "Verkeersschool overijssel / Rijschool Zwolle",
+      "rating": 4.7,
+      "reviews": 169,
+      "phone": "06 84494949",
+      "website": "https://www.verkeersschooloverijssel.nl/"
+    },
+    {
+      "name": "Rijschool Kernpunt Zwolle",
+      "rating": 4.9,
+      "reviews": 58,
+      "phone": "06 51407451",
+      "website": "https://www.rijschool-kernpunt.nl/"
+    }
+  ]
+}
