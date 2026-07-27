@@ -215,6 +215,7 @@ HEAD = """<!doctype html>
   <nav>
     <a href="{root}index.html">Overzicht</a>
     <a href="{root}kortste-wachttijden.html">Kortste wachttijden</a>
+    <a href="{root}kennisbank/index.html">Kennisbank</a>
     <a href="{root}over.html">Over dit archief</a>
   </nav>
 </div></header>
@@ -232,8 +233,11 @@ FOOT = """
 """
 
 
-def page(title, description, body, root="./"):
-    return HEAD.format(title=title, description=description, root=root) + body + FOOT
+def page(title, description, body, root="./", extra_head=""):
+    html = HEAD.format(title=title, description=description, root=root) + body + FOOT
+    if extra_head:
+        html = html.replace("</head>", extra_head + "\n</head>")
+    return html
 
 
 def bord_html(weeks, size_class="bord"):
@@ -676,6 +680,272 @@ document.querySelectorAll('.ranking-table').forEach(function(table) {{
              "CBR-wachttijd, voor praktijkexamen, herexamen en theorie-examen.", body))
 
 
+KENNISBANK = [
+    {
+        "slug": "hoe-lang-wachttijd-praktijkexamen",
+        "title": "Hoe lang is de wachttijd voor het CBR praktijkexamen?",
+        "description": "Uitleg over de wachttijd voor het CBR praktijkexamen: wat het "
+                        "betekent, hoe het verschilt per locatie, en waar je de actuele en "
+                        "historische cijfers vindt.",
+        "body": """
+<h1>Hoe lang is de wachttijd voor het CBR praktijkexamen?</h1>
+<p class="lead">De wachttijd voor het praktijkexamen auto is het aantal weken tussen het
+moment dat je (via je rijschool) een examen kunt reserveren en de eerst beschikbare
+examendatum bij het CBR. Deze wachttijd verschilt sterk per examenlocatie en per week
+&mdash; er is geen vast landelijk cijfer dat overal geldt.</p>
+
+<h2>Waarom is er geen vast antwoord?</h2>
+<p>Het CBR publiceert wekelijks de actuele wachttijd per examenlocatie, maar deze cijfers
+wisselen voortdurend door annuleringen, drukte in bepaalde regio's en de beschikbaarheid
+van examinatoren. Een wachttijd van 6 weken in de ene stad zegt niets over een andere
+stad verderop &mdash; en het cijfer van deze week kan er volgende week alweer anders
+uitzien.</p>
+
+<h2>Waar vind je de actuele wachttijd voor jouw locatie?</h2>
+<p>Op het <a href="../../index.html">overzicht per provincie</a> staan alle CBR-examenlocaties
+met de actuele wachttijd in weken. Omdat wij elke week archiveren, kun je op elke
+locatiepagina ook zien hoe de wachttijd zich de afgelopen weken heeft ontwikkeld &mdash;
+iets wat je nergens anders terugvindt. Zie ook de <a href="../../kortste-wachttijden.html">
+kortste wachttijden</a>, gerangschikt per examentype.</p>
+
+<h2>Wat beïnvloedt de wachttijd?</h2>
+<ul>
+<li><strong>Regio en drukte:</strong> grote steden en populaire locaties hebben vaak
+langere wachttijden dan kleinere locaties.</li>
+<li><strong>Seizoen:</strong> in sommige periodes van het jaar is de vraag naar examens
+hoger.</li>
+<li><strong>Beschikbaarheid van examinatoren:</strong> dit varieert per locatie en
+periode.</li>
+<li><strong>Annuleringen:</strong> soms komen er tussentijds plekken vrij, waardoor de
+wachttijd op korte termijn kan dalen.</li>
+</ul>
+
+<h2>Praktijkexamen vs. herexamen</h2>
+<p>De wachttijd voor een eerste praktijkexamen en voor een herexamen kunnen van elkaar
+verschillen. Lees meer in <a href="../verschil-praktijkexamen-herexamen/">wachttijd
+praktijkexamen vs. herexamen: wat is het verschil?</a></p>
+""",
+    },
+    {
+        "slug": "waarom-verschilt-wachttijd-per-locatie",
+        "title": "Waarom verschilt de wachttijd per examenlocatie?",
+        "description": "Waarom de CBR-wachttijd voor het praktijkexamen per locatie kan "
+                        "verschillen, en hoe je de beste examenplek voor jouw situatie kiest.",
+        "body": """
+<h1>Waarom verschilt de wachttijd per examenlocatie?</h1>
+<p class="lead">De wachttijd voor het CBR-praktijkexamen kan tussen twee locaties die maar
+een half uur van elkaar liggen zomaar enkele weken schelen. Dat komt niet doordat het ene
+CBR-kantoor "beter" is dan het andere, maar door een combinatie van factoren die per
+locatie en per week anders uitpakt.</p>
+
+<h2>De belangrijkste factoren</h2>
+<p><strong>Bevolkingsdichtheid en vraag.</strong> Locaties in en rond grote steden zoals
+Amsterdam, Utrecht en Rotterdam verwerken doorgaans meer aanvragen, wat de wachttijd kan
+opdrijven ten opzichte van kleinere, minder drukke locaties.</p>
+<p><strong>Aantal beschikbare examinatoren.</strong> Elke locatie heeft een eigen planning
+van examinatoren. Uitval, ziekte of tijdelijke onderbezetting op één locatie werkt direct
+door in de wachttijd op die plek, zonder dat andere locaties dit merken.</p>
+<p><strong>Regionale spreiding van rijscholen.</strong> In sommige regio's zijn er
+relatief veel rijscholen die examens aanvragen voor dezelfde locatie, wat de druk op die
+specifieke plek verhoogt.</p>
+<p><strong>Tijdelijke pieken.</strong> Een lokale gebeurtenis kan een locatie voor een
+aantal weken uit de pas laten lopen met de rest van het land.</p>
+
+<h2>Wat betekent dit voor jou?</h2>
+<p>Als je enige reisafstand kunt overbruggen, kan het de moeite waard zijn om de
+wachttijd van meerdere locaties in jouw regio te vergelijken. Een verschil van een paar
+weken kan soms al opgelost worden door een naburige locatie te overwegen &mdash; in
+overleg met je rijschool, die de daadwerkelijke reservering doet.</p>
+
+<h2>Vergelijk locaties in jouw regio</h2>
+<p>Op het <a href="../../index.html">overzicht per provincie</a> zie je alle
+examenlocaties met de actuele wachttijd ernaast, en op de <a
+href="../../kortste-wachttijden.html">kortste-wachttijden-pagina</a> staan ze
+gerangschikt van kort naar lang. Benieuwd hoe de wachttijd van jouw locatie zich de
+afgelopen weken heeft ontwikkeld? Elke locatiepagina toont ook de geschiedenis, niet
+alleen het actuele cijfer.</p>
+""",
+    },
+    {
+        "slug": "verschil-praktijkexamen-herexamen",
+        "title": "Wachttijd praktijkexamen vs. herexamen: wat is het verschil?",
+        "description": "Is de wachttijd voor een herexamen bij het CBR korter dan voor een "
+                        "eerste praktijkexamen? Uitleg over het verschil en waar je actuele "
+                        "cijfers voor beide vindt.",
+        "body": """
+<h1>Wachttijd praktijkexamen vs. herexamen: wat is het verschil?</h1>
+<p class="lead">Als je voor je eerste praktijkexamen bent gezakt, is de eerstvolgende
+vraag meestal: hoe lang moet ik nu wachten op een herexamen? Het CBR houdt voor eerste
+examens en herexamens aparte wachttijden bij, en deze twee cijfers lopen niet altijd
+gelijk op.</p>
+
+<h2>Waarom zijn dit twee aparte cijfers?</h2>
+<p>Eerste examens en herexamens worden binnen dezelfde planning van een examenlocatie
+ingepland, maar met een eigen tel voor wachttijd. Dat betekent dat een locatie op
+hetzelfde moment een andere wachttijd voor een herexamen kan hebben dan voor een eerste
+examen &mdash; soms korter, soms langer, afhankelijk van hoeveel ruimte er in de planning
+is voor elk type.</p>
+
+<h2>Wat kun je hieraan doen?</h2>
+<p>De wachttijd voor een herexamen wordt, net als voor het eerste examen, per week
+bijgewerkt en verschilt per locatie. Er is geen landelijke regel die zegt dat een
+herexamen altijd sneller of trager gaat dan een eerste examen &mdash; dit hangt af van de
+actuele planning op dat moment. Je rijschool regelt de daadwerkelijke reservering en kan
+je vertellen welke opties er voor jouw locatie zijn.</p>
+
+<h2>Actuele cijfers per locatie</h2>
+<p>Op elke locatiepagina zie je zowel de wachttijd voor het eerste praktijkexamen als
+voor het herexamen, plus hoe deze zich de afgelopen weken hebben ontwikkeld. Bekijk het
+<a href="../../index.html">overzicht per provincie</a> om jouw examenplaats te vinden.</p>
+
+<p>Lees ook <a href="../hoe-lang-wachttijd-praktijkexamen/">hoe lang is de wachttijd voor
+het CBR praktijkexamen?</a> voor een bredere uitleg over wat de wachttijd beïnvloedt.</p>
+""",
+    },
+    {
+        "slug": "volg-wachttijd-trend",
+        "title": "Hoe volg je de wachttijd-trend van je examenlocatie?",
+        "description": "Waarom het niet genoeg is om alleen de wachttijd van deze week te "
+                        "bekijken, en hoe je de trend van jouw CBR-examenlocatie over tijd "
+                        "volgt.",
+        "body": """
+<h1>Hoe volg je de wachttijd-trend van je examenlocatie?</h1>
+<p class="lead">Een wachttijd van 6 weken zegt maar de helft van het verhaal. Is die
+wachttijd de afgelopen maand gestegen of gedaald? Ligt hij hoger of lager dan normaal
+voor deze locatie? Zonder geschiedenis is een los cijfer moeilijk te interpreteren.</p>
+
+<h2>Waarom een momentopname niet genoeg is</h2>
+<p>Het CBR publiceert elke week een actuele wachttijd per locatie, maar overschrijft deze
+wekelijks &mdash; er is geen ingebouwde manier om te zien hoe dat cijfer zich ontwikkelt.
+Dat maakt het lastig om onderscheid te maken tussen een tijdelijke piek en een
+structurele stijging.</p>
+
+<h2>Hoe wij dit oplossen</h2>
+<p>Omdat CBR deze data wekelijks overschrijft, archiveren wij elke publicatie apart. Op
+elke locatiepagina vind je daarom niet alleen de actuele wachttijd, maar ook een
+sparkline en tabel met de afgelopen weken, zodat je zelf kunt zien of de trend stijgt,
+daalt, of stabiel blijft.</p>
+
+<h2>Hoe je dit gebruikt bij het plannen van je examen</h2>
+<ul>
+<li><strong>Stijgende trend:</strong> het kan de moeite waard zijn om eerder te
+reserveren, of een naburige locatie te overwegen.</li>
+<li><strong>Dalende trend:</strong> wachten kan gunstig uitpakken als je nog niet
+examenklaar bent.</li>
+<li><strong>Stabiele trend:</strong> dit geeft een realistischer beeld van wat je
+structureel kunt verwachten dan het cijfer van één week.</li>
+</ul>
+
+<p>Bekijk het <a href="../../index.html">overzicht per provincie</a> om de trend van
+jouw examenlocatie te bekijken, of lees <a href="../../over.html">over dit archief</a>
+voor meer uitleg over hoe en waarom wij deze data wekelijks bewaren.</p>
+""",
+    },
+    {
+        "slug": "veelgestelde-vragen",
+        "title": "Veelgestelde vragen over CBR-wachttijden",
+        "description": "Antwoorden op veelgestelde vragen over CBR-wachttijden voor het "
+                        "praktijkexamen: publicatiemomenten, ontbrekende updates, en hoe de "
+                        "data tot stand komt.",
+        "body": """
+<h1>Veelgestelde vragen over CBR-wachttijden</h1>
+
+<h2>Wanneer publiceert het CBR nieuwe wachttijden?</h2>
+<p>Het CBR publiceert wekelijks nieuwe wachttijden per examenlocatie. Wij archiveren deze
+publicatie zodra hij beschikbaar is, zodat je zowel de actuele als historische cijfers
+kunt bekijken.</p>
+
+<h2>Wat betekent het als een locatie geen update heeft deze week?</h2>
+<p>Soms publiceert het CBR voor een bepaalde week geen nieuwe cijfers, bijvoorbeeld rond
+feestdagen of in specifieke periodes van het examenseizoen. Onze locatiepagina's geven
+aan wanneer de laatste beschikbare update dateert.</p>
+
+<h2>Waarom archiveren jullie deze data, terwijl het CBR die al publiceert?</h2>
+<p>Het CBR toont alleen de wachttijd van de huidige week en overschrijft dit cijfer bij
+de volgende publicatie. Daardoor is er geen manier om te zien hoe de wachttijd zich over
+tijd ontwikkelt. Wij bewaren elke wekelijkse publicatie apart, zodat je de trend per
+locatie kunt volgen. Lees meer op <a href="../../over.html">over dit archief</a>.</p>
+
+<h2>Is de wachttijd op deze site hetzelfde als wat mijn rijschool mij vertelt?</h2>
+<p>Onze cijfers zijn gebaseerd op de wekelijkse publicaties van het CBR. Je rijschool
+plant de daadwerkelijke reservering en kan de meest actuele beschikbaarheid op het
+moment van reserveren bevestigen, wat kan afwijken van het gepubliceerde gemiddelde.</p>
+
+<h2>Kan ik zelf een andere locatie kiezen als de wachttijd te lang is?</h2>
+<p>Je rijschool bepaalt in overleg met jou op welke locatie het examen wordt aangevraagd.
+Op het <a href="../../index.html">overzicht per provincie</a> kun je de wachttijden van
+verschillende locaties vergelijken.</p>
+
+<h2>Waar komt de data vandaan?</h2>
+<p>De cijfers zijn afkomstig uit de officiële, openbare publicaties van het CBR. Meer
+over onze werkwijze staat op <a href="../../over.html">over dit archief</a>.</p>
+
+<h2>Hoe vaak wordt deze website bijgewerkt?</h2>
+<p>Wekelijks, in lijn met het publicatieschema van het CBR.</p>
+""",
+    },
+]
+
+KENNISBANK_FAQ_SCHEMA = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Wanneer publiceert het CBR nieuwe wachttijden?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Het CBR publiceert wekelijks nieuwe wachttijden per examenlocatie. Wij archiveren deze publicatie zodra hij beschikbaar is, zodat je zowel de actuele als historische cijfers kunt bekijken."}},
+    {"@type": "Question", "name": "Wat betekent het als een locatie geen update heeft deze week?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Soms publiceert het CBR voor een bepaalde week geen nieuwe cijfers, bijvoorbeeld rond feestdagen of in specifieke periodes van het examenseizoen. Onze locatiepagina's geven aan wanneer de laatste beschikbare update dateert."}},
+    {"@type": "Question", "name": "Waarom archiveren jullie deze data, terwijl het CBR die al publiceert?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Het CBR toont alleen de wachttijd van de huidige week en overschrijft dit cijfer bij de volgende publicatie. Wij bewaren elke wekelijkse publicatie apart, zodat je de trend per locatie kunt volgen."}},
+    {"@type": "Question", "name": "Is de wachttijd op deze site hetzelfde als wat mijn rijschool mij vertelt?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Onze cijfers zijn gebaseerd op de wekelijkse publicaties van het CBR. Je rijschool plant de daadwerkelijke reservering en kan de meest actuele beschikbaarheid bevestigen, wat kan afwijken van het gepubliceerde gemiddelde."}},
+    {"@type": "Question", "name": "Kan ik zelf een andere locatie kiezen als de wachttijd te lang is?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Je rijschool bepaalt in overleg met jou op welke locatie het examen wordt aangevraagd. Op de homepagina kun je de wachttijden van verschillende locaties vergelijken."}},
+    {"@type": "Question", "name": "Waar komt de data vandaan?",
+     "acceptedAnswer": {"@type": "Answer", "text": "De cijfers zijn afkomstig uit de officiële, openbare publicaties van het CBR."}},
+    {"@type": "Question", "name": "Hoe vaak wordt deze website bijgewerkt?",
+     "acceptedAnswer": {"@type": "Answer", "text": "Wekelijks, in lijn met het publicatieschema van het CBR."}}
+  ]
+}
+</script>"""
+
+
+def build_kennisbank_pages(out_dir):
+    """Background/explainer content -- gives Google (and AI answer engines)
+    topical-authority signals beyond the raw data pages, and interlinks
+    back to locatie/index/over pages."""
+    for entry in KENNISBANK:
+        extra_head = KENNISBANK_FAQ_SCHEMA if entry["slug"] == "veelgestelde-vragen" else ""
+        d = out_dir / "kennisbank" / entry["slug"]
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(
+            page(f"{entry['title']} | rijexamenwachttijden.nl",
+                 entry["description"], entry["body"], root="../../",
+                 extra_head=extra_head))
+
+
+def build_kennisbank_index(out_dir):
+    rows = "".join(
+        f'<li><a href="{e["slug"]}/">{e["title"]}</a></li>' for e in KENNISBANK
+    )
+    body = f"""
+<h1>Kennisbank: alles over CBR-wachttijden</h1>
+<p class="lead">Achtergrondartikelen over hoe CBR-wachttijden werken, waarom ze
+verschillen per locatie, en hoe je de cijfers het beste gebruikt bij het plannen van je
+praktijkexamen.</p>
+<ul>{rows}</ul>
+<p class="source-note">Bekijk ook het <a href="../index.html">overzicht per provincie</a>
+of lees <a href="../over.html">over dit archief</a>.</p>
+"""
+    d = out_dir / "kennisbank"
+    d.mkdir(parents=True, exist_ok=True)
+    (d / "index.html").write_text(
+        page("Kennisbank: alles over CBR-wachttijden | rijexamenwachttijden.nl",
+             "Uitleg, achtergrond en veelgestelde vragen over CBR-wachttijden voor het "
+             "praktijkexamen \u2014 per locatie, per examentype, en over tijd.",
+             body, root="../"))
+
+
 def build_over_page(out_dir):
     body = """
 <h1>Over dit archief</h1>
@@ -716,9 +986,12 @@ def build_sitemap(locations, out_dir):
         f"{SITE_URL}/over.html",
         f"{SITE_URL}/widgets.html",
         f"{SITE_URL}/kortste-wachttijden.html",
+        f"{SITE_URL}/kennisbank/",
     ]
     for lslug in locations:
         urls.append(f"{SITE_URL}/locatie/{lslug}/")
+    for entry in KENNISBANK:
+        urls.append(f"{SITE_URL}/kennisbank/{entry['slug']}/")
 
     body = "".join(f"<url><loc>{u}</loc></url>\n" for u in urls)
     xml = (
@@ -765,6 +1038,8 @@ def main():
     build_homepage(locations, latest_by_exam, DIST)
     build_over_page(DIST)
     build_ranking_page(locations, latest_by_exam, DIST)
+    build_kennisbank_index(DIST)
+    build_kennisbank_pages(DIST)
     for lslug, entry in locations.items():
         build_location_page(lslug, entry, DIST, rijscholen)
         build_location_csv(lslug, entry, DIST)
@@ -774,7 +1049,8 @@ def main():
     build_robots(DIST)
     build_data_json(locations, latest_by_exam, DIST)
     print(f"Built {len(locations)} location pages + {len(locations)} widgets + "
-          f"homepage + over.html + widgets.html + data.json + sitemap.xml + robots.txt into dist/")
+          f"{len(KENNISBANK)} kennisbank pages + homepage + over.html + widgets.html + "
+          f"data.json + sitemap.xml + robots.txt into dist/")
 
 
 if __name__ == "__main__":
