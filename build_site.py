@@ -723,7 +723,9 @@ wachttijd op korte termijn kan dalen.</li>
 <h2>Praktijkexamen vs. herexamen</h2>
 <p>De wachttijd voor een eerste praktijkexamen en voor een herexamen kunnen van elkaar
 verschillen. Lees meer in <a href="../verschil-praktijkexamen-herexamen/">wachttijd
-praktijkexamen vs. herexamen: wat is het verschil?</a></p>
+praktijkexamen vs. herexamen: wat is het verschil?</a> Benieuwd naar de wachttijd
+vóór het praktijkexamen? Zie <a href="../wachttijd-theorie-examen/">hoe lang is de
+wachttijd voor het CBR theorie-examen?</a></p>
 """,
     },
     {
@@ -882,6 +884,48 @@ over onze werkwijze staat op <a href="../../over.html">over dit archief</a>.</p>
 
 <h2>Hoe vaak wordt deze website bijgewerkt?</h2>
 <p>Wekelijks, in lijn met het publicatieschema van het CBR.</p>
+""",
+    },
+    {
+        "slug": "wachttijd-theorie-examen",
+        "title": "Hoe lang is de wachttijd voor het CBR theorie-examen?",
+        "description": "Uitleg over de wachttijd voor het CBR theorie-examen: hoe je het "
+                        "aanvraagt, wat de wachttijd beïnvloedt, en hoe dit zich verhoudt "
+                        "tot het praktijkexamen.",
+        "body": """
+<h1>Hoe lang is de wachttijd voor het CBR theorie-examen?</h1>
+<p class="lead">De wachttijd voor het theorie-examen is het aantal weken tussen het
+aanvragen van een examendatum en de eerst beschikbare datum bij het CBR. Deze wachttijd
+staat los van de wachttijd voor het praktijkexamen en verschilt per locatie.</p>
+
+<h2>Theorie-examen aanvragen: hoe werkt dat?</h2>
+<p>Je kunt het theorie-examen zelf aanvragen via Mijn CBR, of via je rijschool laten
+regelen. Sinds 2024 geldt dat je pas een praktijkexamen kunt reserveren nadat je
+theorie-examen is behaald &mdash; dat maakt de wachttijd voor theorie een belangrijke
+eerste stap in je totale traject naar het rijbewijs.</p>
+
+<h2>Waarom verschilt de wachttijd per locatie?</h2>
+<p>Net als bij het praktijkexamen speelt drukte, beschikbare capaciteit en regionale
+spreiding een rol. Grotere, populairdere examenlocaties kunnen een langere wachttijd
+hebben dan kleinere locaties, ook al ligt het landelijk gemiddelde vaak lager voor
+theorie dan voor praktijk. Lees meer over deze factoren in <a
+href="../waarom-verschilt-wachttijd-per-locatie/">waarom verschilt de wachttijd per
+examenlocatie?</a></p>
+
+<h2>Theorie-examen vs. praktijkexamen: twee aparte wachttijden</h2>
+<p>De wachttijd voor theorie en praktijk worden apart bijgehouden en lopen niet
+gelijk op. Omdat je theorie-examen inmiddels bepalend is voor wanneer je je
+praktijkexamen kunt inplannen, is het slim om de wachttijd voor beide examens
+tegelijk in de gaten te houden &mdash; niet alleen op het moment dat je aan de beurt
+bent voor theorie.</p>
+
+<h2>Actuele cijfers per locatie</h2>
+<p>Op elke locatiepagina in het <a href="../../index.html">overzicht per provincie</a>
+vind je naast praktijkexamen en herexamen ook de actuele en historische wachttijd voor
+het theorie-examen, inclusief het verloop over de afgelopen weken.</p>
+
+<p>Lees ook <a href="../hoe-lang-wachttijd-praktijkexamen/">hoe lang is de wachttijd
+voor het CBR praktijkexamen?</a> voor het vervolg van je traject na het theorie-examen.</p>
 """,
     },
 ]
