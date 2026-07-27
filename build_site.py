@@ -205,6 +205,16 @@ HEAD = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 <meta name="description" content="{description}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="rijexamenwachttijden.nl">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{description}">
+<meta property="og:image" content="https://rijexamenwachttijden.nl/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{description}">
+<meta name="twitter:image" content="https://rijexamenwachttijden.nl/og-image.png">
+<link rel="alternate" type="application/rss+xml" title="rijexamenwachttijden.nl updates" href="{root}feed.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{root}style.css">
@@ -274,6 +284,35 @@ def sparkline_svg(series, width=140, height=36):
 
 
 # ---------------------------------------------------------------- builders
+
+DATASET_SCHEMA = """<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "name": "CBR-wachttijden archief: praktijkexamen, herexamen en theorie-examen per locatie",
+  "description": "Wekelijks gearchiveerde wachttijden (in weken) voor het CBR-praktijkexamen, herexamen en theorie-examen, per examenlocatie in Nederland. CBR publiceert alleen de actuele week; dit archief bewaart elke wekelijkse publicatie apart sinds week 27, 2026.",
+  "url": "https://rijexamenwachttijden.nl/",
+  "creator": {
+    "@type": "Organization",
+    "name": "rijexamenwachttijden.nl",
+    "url": "https://rijexamenwachttijden.nl/over.html"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "encodingFormat": "CSV",
+      "contentUrl": "https://rijexamenwachttijden.nl/data.json"
+    }
+  ],
+  "temporalCoverage": "2026-07-01/..",
+  "spatialCoverage": {
+    "@type": "Place",
+    "name": "Nederland"
+  },
+  "keywords": ["CBR", "wachttijd", "praktijkexamen", "herexamen", "theorie-examen", "rijbewijs", "rijexamen"]
+}
+</script>"""
+
 
 def build_homepage(locations, latest_by_exam, out_dir):
     by_province = defaultdict(list)
@@ -349,7 +388,7 @@ wachttijden &mdash; een pauze van twee weken tijdens het examenseizoen. Zie
     (out_dir / "index.html").write_text(
         page("Wachttijden CBR-examens per locatie | rijexamenwachttijden.nl",
              "Actuele en historische wachttijden voor CBR praktijkexamen, herexamen en "
-             "theorie-examen per locatie in Nederland.", body))
+             "theorie-examen per locatie in Nederland.", body, extra_head=DATASET_SCHEMA))
 
 
 def build_location_csv(lslug, entry, out_dir):
@@ -524,7 +563,7 @@ document.querySelectorAll('.alert-form').forEach(function(form) {{
     d = out_dir / "locatie" / lslug
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(
-        page(f"Wachttijd examens {entry['name']} | rijexamenwachttijden.nl",
+        page(f"{entry['name']}: {current_praktijk} weken wachttijd praktijkexamen | rijexamenwachttijden.nl",
              location_description, body, root="../../"))
 
 
@@ -1074,6 +1113,65 @@ def build_data_json(locations, latest_by_exam, out_dir):
     (out_dir / "data.json").write_text(json.dumps(snapshot, ensure_ascii=False, indent=0))
 
 
+def build_rss(locations, latest_by_exam, out_dir):
+    """A lightweight RSS feed of the current snapshot -- lets aggregators and
+    subscribers discover this site's updates without any outreach. Rebuilt
+    fresh on every run, so it always reflects 'as of this archive run'."""
+    import html
+    from datetime import datetime, timezone
+    from email.utils import format_datetime
+
+    now = datetime.now(timezone.utc)
+    build_date = format_datetime(now)
+
+    items = []
+    for lslug, entry in sorted(locations.items(), key=lambda t: t[1]["name"]):
+        w = latest_by_exam.get("wanneer-praktijkexamen", {}).get(lslug)
+        if w is None:
+            continue
+        title = html.escape(f"{entry['name']}: {w} weken wachttijd praktijkexamen")
+        link = f"{SITE_URL}/locatie/{lslug}/"
+        desc_bits = [f"Praktijkexamen: {w} weken."]
+        wt = latest_by_exam.get("wanneer-theorie-examen", {}).get(lslug)
+        if wt is not None:
+            desc_bits.append(f"Theorie-examen: {wt} weken.")
+        wh = latest_by_exam.get("wanneer-herexamen", {}).get(lslug)
+        if wh is not None:
+            desc_bits.append(f"Herexamen: {wh} weken.")
+        description = html.escape(" ".join(desc_bits))
+        items.append(f"""  <item>
+    <title>{title}</title>
+    <link>{link}</link>
+    <guid isPermaLink="true">{link}</guid>
+    <description>{description}</description>
+    <pubDate>{build_date}</pubDate>
+  </item>""")
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>rijexamenwachttijden.nl &#8212; actuele wachttijden</title>
+  <link>{SITE_URL}/</link>
+  <description>Wekelijkse CBR-wachttijden per examenlocatie in Nederland.</description>
+  <language>nl-nl</language>
+  <lastBuildDate>{build_date}</lastBuildDate>
+{chr(10).join(items)}
+</channel>
+</rss>
+"""
+    (out_dir / "feed.xml").write_text(xml)
+
+
+def build_og_image(out_dir):
+    """Copies a static Open Graph preview image into dist/ if present in the
+    repo root. Missing file just means no OG image yet -- degrades
+    gracefully like the optional rijscholen.json feature."""
+    import shutil
+    src = ROOT / "og-image.png"
+    if src.exists():
+        shutil.copy(src, out_dir / "og-image.png")
+
+
 def main():
     DIST.mkdir(exist_ok=True)
     (DIST / "style.css").write_text(CSS)
@@ -1092,9 +1190,11 @@ def main():
     build_sitemap(locations, DIST)
     build_robots(DIST)
     build_data_json(locations, latest_by_exam, DIST)
+    build_rss(locations, latest_by_exam, DIST)
+    build_og_image(DIST)
     print(f"Built {len(locations)} location pages + {len(locations)} widgets + "
           f"{len(KENNISBANK)} kennisbank pages + homepage + over.html + widgets.html + "
-          f"data.json + sitemap.xml + robots.txt into dist/")
+          f"data.json + sitemap.xml + robots.txt + feed.xml into dist/")
 
 
 if __name__ == "__main__":
