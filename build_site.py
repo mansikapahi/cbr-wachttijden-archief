@@ -535,6 +535,10 @@ Hieronder het verloop per examentype sinds het begin van dit archief.</p>
 er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).
 &middot; <a href="geschiedenis.csv" download>Download geschiedenis als CSV</a></p>
 
+<p class="source-note">Meer weten? Lees <a href="../../kennisbank/waarom-verschilt-wachttijd-per-locatie/">waarom
+verschilt de wachttijd per examenlocatie?</a> of <a href="../../kennisbank/hoe-lang-wachttijd-praktijkexamen/">hoe
+lang is de wachttijd voor het CBR praktijkexamen?</a></p>
+
 <script>
 document.querySelectorAll('.alert-form').forEach(function(form) {{
   form.addEventListener('submit', async function(e) {{
@@ -1099,8 +1103,54 @@ def build_robots(out_dir):
     (out_dir / "robots.txt").write_text(
         "User-agent: *\n"
         "Allow: /\n"
+        "\n"
+        "# Explicitly welcomed AI answer-engine crawlers\n"
+        "User-agent: GPTBot\n"
+        "Allow: /\n"
+        "\n"
+        "User-agent: ClaudeBot\n"
+        "Allow: /\n"
+        "\n"
+        "User-agent: PerplexityBot\n"
+        "Allow: /\n"
+        "\n"
+        "User-agent: Google-Extended\n"
+        "Allow: /\n"
+        "\n"
         f"Sitemap: {SITE_URL}/sitemap.xml\n"
     )
+
+
+def build_llms_txt(locations, out_dir):
+    """A plain-text summary some AI crawlers use as a shortcut to understand
+    site structure -- an emerging convention, cheap to maintain."""
+    location_lines = "\n".join(
+        f"- [{e['name']}]({SITE_URL}/locatie/{lslug}/)"
+        for lslug, e in sorted(locations.items(), key=lambda t: t[1]["name"])
+    )
+    text = f"""# rijexamenwachttijden.nl
+
+> Wekelijks gearchiveerde wachttijden voor het CBR-praktijkexamen, herexamen en
+> theorie-examen, per examenlocatie in Nederland. CBR publiceert alleen de
+> actuele week; dit archief bewaart elke wekelijkse publicatie apart sinds
+> week 27, 2026, zodat de trend per locatie zichtbaar is.
+
+Dit is geen officieel CBR-kanaal. Data afkomstig uit publiek gepubliceerde
+CBR-wachttijden, wekelijks gearchiveerd.
+
+## Belangrijke pagina's
+
+- [Overzicht per provincie]({SITE_URL}/)
+- [Kortste wachttijden]({SITE_URL}/kortste-wachttijden.html)
+- [Kennisbank: alles over CBR-wachttijden]({SITE_URL}/kennisbank/)
+- [Over dit archief \u2014 methodologie]({SITE_URL}/over.html)
+- [Broncode & ruwe data (GitHub)](https://github.com/mansikapahi/cbr-wachttijden-archief)
+
+## Examenlocaties
+
+{location_lines}
+"""
+    (out_dir / "llms.txt").write_text(text)
 
 
 def build_data_json(locations, latest_by_exam, out_dir):
@@ -1198,12 +1248,13 @@ def main():
     build_widgets_page(locations, DIST)
     build_sitemap(locations, DIST)
     build_robots(DIST)
+    build_llms_txt(locations, DIST)
     build_data_json(locations, latest_by_exam, DIST)
     build_rss(locations, latest_by_exam, DIST)
     build_og_image(DIST)
     print(f"Built {len(locations)} location pages + {len(locations)} widgets + "
           f"{len(KENNISBANK)} kennisbank pages + homepage + over.html + widgets.html + "
-          f"data.json + sitemap.xml + robots.txt + feed.xml into dist/")
+          f"data.json + sitemap.xml + robots.txt + feed.xml + llms.txt into dist/")
 
 
 if __name__ == "__main__":
