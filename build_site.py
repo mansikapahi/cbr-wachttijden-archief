@@ -242,6 +242,7 @@ HEAD = """<!doctype html>
     <a href="{root}index.html">Overzicht</a>
     <a href="{root}kortste-wachttijden.html">Kortste wachttijden</a>
     <a href="{root}kosten-rijbewijs.html">Kosten rijbewijs</a>
+    <a href="{root}planning.html">Wanneer ben ik klaar?</a>
     <a href="{root}kennisbank/index.html">Kennisbank</a>
     <a href="{root}over.html">Over dit archief</a>
   </nav>
@@ -1133,6 +1134,10 @@ rijschool en regio. Dit is een indicatie, geen offerte.</p>
 vergelijk direct de <a href="kortste-wachttijden.html">wachttijd per examenlocatie</a> zodat
 je weet waar je het snelst terecht kunt.</p>
 
+<h2>Wanneer ben je klaar?</h2>
+<p>Gebruik ook onze <a href="planning.html">planningstool</a> om te berekenen wanneer je,
+gegeven de actuele wachttijd van jouw locatie, je rijbewijs kunt verwachten.</p>
+
 <h2>Meer weten over de kosten?</h2>
 <p>Lees ook <a href="kennisbank/hoe-lang-wachttijd-praktijkexamen/">hoe lang is de
 wachttijd voor het CBR praktijkexamen?</a> en <a
@@ -1211,6 +1216,130 @@ theorie-examen?</a> om je hele traject te plannen.</p>
              canonical="/kosten-rijbewijs.html"))
 
 
+def build_planning_page(out_dir):
+    """'Wanneer haal ik mijn rijbewijs?' -- combines this site's unique
+    per-location wachttijd data with the person's own situation (lessons
+    remaining, theorie status) to estimate a real target date. Fetches
+    data.json client-side, same pattern as the homepage search."""
+    body = """
+<h1>Wanneer haal ik mijn rijbewijs?</h1>
+<p class="lead">Combineer de actuele wachttijd van jouw examenlocatie met je eigen
+planning &mdash; hoeveel lessen je nog nodig hebt en of je al geslaagd bent voor je
+theorie-examen &mdash; voor een realistische inschatting van je einddatum.</p>
+
+<div class="calc">
+  <div class="calc-row">
+    <label for="plan-locatie">Examenlocatie</label>
+    <select id="plan-locatie"><option value="">Locatie laden&hellip;</option></select>
+  </div>
+  <div class="calc-row">
+    <label for="plan-theorie"><input type="checkbox" id="plan-theorie"> Ik heb mijn
+    theorie-examen al gehaald</label>
+  </div>
+  <div class="calc-row">
+    <label for="plan-lessen">Nog benodigde rijlessen</label>
+    <input type="number" id="plan-lessen" value="20" min="0" step="1">
+  </div>
+  <div class="calc-row">
+    <label for="plan-tempo">Lessen per week</label>
+    <input type="number" id="plan-tempo" value="1" min="0.5" step="0.5">
+  </div>
+
+  <div class="calc-total">
+    <table id="plan-breakdown"></table>
+    <div class="calc-grand-total">Verwachte einddatum: <span id="plan-datum">&mdash;</span></div>
+  </div>
+</div>
+
+<p class="source-note">Inschatting op basis van de actuele wachttijd van de gekozen
+locatie zoals door ons gearchiveerd, plus je eigen lestempo. Wachttijden kunnen
+wekelijks veranderen &mdash; zie de <a href="index.html">actuele cijfers</a> voor de
+laatste stand. Dit is een indicatie, geen garantie.</p>
+
+<h2>Kosten in beeld?</h2>
+<p>Bekijk ook de <a href="kosten-rijbewijs.html">kostencalculator</a> om naast je
+planning ook je verwachte totale kosten te berekenen.</p>
+
+<script>
+(function() {
+  var select = document.getElementById('plan-locatie');
+  var theorie = document.getElementById('plan-theorie');
+  var lessen = document.getElementById('plan-lessen');
+  var tempo = document.getElementById('plan-tempo');
+  var breakdown = document.getElementById('plan-breakdown');
+  var datumEl = document.getElementById('plan-datum');
+  var DATA = null;
+
+  fetch('data.json').then(function(r) { return r.json(); }).then(function(json) {
+    DATA = json;
+    var entries = Object.keys(json).map(function(slug) {
+      return {slug: slug, name: json[slug].name, province: json[slug].province};
+    }).sort(function(a, b) { return a.name.localeCompare(b.name, 'nl'); });
+    select.innerHTML = entries.map(function(e) {
+      return '<option value="' + e.slug + '">' + e.name + ' (' + e.province + ')</option>';
+    }).join('');
+    bereken();
+  }).catch(function() {
+    select.innerHTML = '<option value="">Kon locaties niet laden</option>';
+  });
+
+  function bereken() {
+    if (!DATA) return;
+    var loc = DATA[select.value];
+    if (!loc) return;
+
+    var rows = [];
+    var weken = 0;
+
+    if (!theorie.checked) {
+      var wt = parseFloat(loc.weeks['wanneer-theorie-examen']);
+      if (!isNaN(wt)) {
+        rows.push(['Wachttijd theorie-examen (' + loc.name + ')', wt + ' wk']);
+        weken += wt;
+      }
+    } else {
+      rows.push(['Theorie-examen', 'al gehaald']);
+    }
+
+    var lesWeken = (parseFloat(tempo.value) || 1) > 0
+      ? (parseFloat(lessen.value) || 0) / (parseFloat(tempo.value) || 1)
+      : 0;
+    rows.push(['Resterende lessen (' + lessen.value + ' \\u00f7 ' + tempo.value + '/wk)',
+      Math.ceil(lesWeken) + ' wk']);
+    weken += lesWeken;
+
+    var wp = parseFloat(loc.weeks['wanneer-praktijkexamen']);
+    if (!isNaN(wp)) {
+      rows.push(['Wachttijd praktijkexamen (' + loc.name + ')', wp + ' wk']);
+      weken += wp;
+    }
+
+    breakdown.innerHTML = rows.map(function(r) {
+      return '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td></tr>';
+    }).join('');
+
+    var totaalWeken = Math.ceil(weken);
+    var datum = new Date();
+    datum.setDate(datum.getDate() + totaalWeken * 7);
+    var maanden = ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+    datumEl.textContent = '\\u00b1 ' + datum.getDate() + ' ' + maanden[datum.getMonth()] + ' '
+      + datum.getFullYear() + ' (over ' + totaalWeken + ' weken)';
+  }
+
+  [select, theorie, lessen, tempo].forEach(function(el) {
+    el.addEventListener('input', bereken);
+    el.addEventListener('change', bereken);
+  });
+})();
+</script>
+"""
+    (out_dir / "planning.html").write_text(
+        page("Wanneer haal ik mijn rijbewijs? Planningstool | rijexamenwachttijden.nl",
+             "Bereken wanneer je je rijbewijs kunt halen op basis van de actuele "
+             "wachttijd van jouw examenlocatie en je eigen lesplanning.", body,
+             canonical="/planning.html"))
+
+
 def build_over_page(out_dir):
     body = """
 <h1>Over dit archief</h1>
@@ -1253,6 +1382,7 @@ def build_sitemap(locations, out_dir):
         f"{SITE_URL}/widgets.html",
         f"{SITE_URL}/kortste-wachttijden.html",
         f"{SITE_URL}/kosten-rijbewijs.html",
+        f"{SITE_URL}/planning.html",
         f"{SITE_URL}/kennisbank/",
     ]
     for lslug in locations:
@@ -1410,6 +1540,7 @@ def main():
     build_homepage(locations, latest_by_exam, DIST)
     build_over_page(DIST)
     build_calculator_page(DIST)
+    build_planning_page(DIST)
     build_ranking_page(locations, latest_by_exam, DIST)
     build_kennisbank_index(DIST)
     build_kennisbank_pages(DIST)
