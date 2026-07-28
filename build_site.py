@@ -128,6 +128,22 @@ h2{font-family:var(--display);font-size:1.5rem;font-weight:600;margin:2.4em 0 0.
 .search-bar input:focus{outline:none;border-color:var(--groen)}
 .search-empty{margin:14px 0 0;color:#6b6b60;font-size:0.9rem}
 
+.calc{background:var(--wit);border:1px solid var(--lijn);border-radius:6px;padding:24px;margin:24px 0}
+.calc-row{display:flex;align-items:center;flex-wrap:wrap;gap:10px;padding:10px 0;border-bottom:1px solid var(--lijn)}
+.calc-row:last-of-type{border-bottom:none}
+.calc-row label{font-weight:500;min-width:220px}
+.calc-row input[type=number]{width:90px;padding:6px 10px;border:2px solid var(--inkt);border-radius:4px;font-family:var(--mono);font-size:1rem}
+.calc-row select{padding:6px 10px;border:2px solid var(--inkt);border-radius:4px;font-family:var(--sans);font-size:0.95rem;background:var(--wit)}
+.calc-row input[type=checkbox]{width:18px;height:18px;margin-right:6px;vertical-align:middle}
+.calc-hint{font-size:0.85rem;color:#6b6b60}
+.calc-total{margin-top:18px;padding-top:18px;border-top:2px solid var(--inkt)}
+#calc-breakdown{width:100%;border-collapse:collapse;font-size:0.95rem}
+#calc-breakdown td{padding:6px 0;border-bottom:1px solid var(--lijn)}
+#calc-breakdown td:last-child{text-align:right;font-family:var(--mono)}
+.calc-grand-total{display:flex;justify-content:space-between;margin-top:14px;font-family:var(--display);
+  font-size:1.4rem;font-weight:600}
+.calc-grand-total span{color:var(--groen)}
+
 /* wachttijdbord: signature badge */
 .bord{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;
   background:var(--wit);border:3px solid var(--inkt);border-radius:10px;
@@ -225,6 +241,7 @@ HEAD = """<!doctype html>
   <nav>
     <a href="{root}index.html">Overzicht</a>
     <a href="{root}kortste-wachttijden.html">Kortste wachttijden</a>
+    <a href="{root}kosten-rijbewijs.html">Kosten rijbewijs</a>
     <a href="{root}kennisbank/index.html">Kennisbank</a>
     <a href="{root}over.html">Over dit archief</a>
   </nav>
@@ -1052,6 +1069,148 @@ of lees <a href="../over.html">over dit archief</a>.</p>
              body, root="../", canonical="/kennisbank/"))
 
 
+def build_calculator_page(out_dir):
+    """Interactive 'wat kost een rijbewijs' calculator. Uses official 2026
+    CBR-tarieven (published by cbr.nl, 14-10-2025) so numbers are real, not
+    guesses. All calculation happens client-side in vanilla JS, matching the
+    site's existing no-framework approach."""
+    body = """
+<h1>Wat kost een rijbewijs?</h1>
+<p class="lead">Bereken je verwachte totale kosten voor het CBR-praktijkexamen,
+theorie-examen en rijlessen &mdash; op basis van de officiële CBR-tarieven voor 2026.
+Pas de getallen aan naar jouw situatie.</p>
+
+<div class="calc">
+  <div class="calc-row">
+    <label for="lessen">Aantal rijlessen</label>
+    <input type="number" id="lessen" value="41" min="0" step="1">
+    <span class="calc-hint">Landelijk gemiddelde volgens het CBR: 41 lessen</span>
+  </div>
+  <div class="calc-row">
+    <label for="lesprijs">Prijs per rijles (&euro;)</label>
+    <input type="number" id="lesprijs" value="58" min="0" step="1">
+    <span class="calc-hint">Landelijk betaalt 80% tussen &euro;50 en &euro;72 per uur (bron: CBR)</span>
+  </div>
+  <div class="calc-row">
+    <label for="theoriepogingen">Theorie-examen: aantal pogingen</label>
+    <select id="theoriepogingen">
+      <option value="1" selected>1 (in &eacute;&eacute;n keer geslaagd)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+  <div class="calc-row">
+    <label for="praktijkpogingen">Praktijkexamen: aantal pogingen</label>
+    <select id="praktijkpogingen">
+      <option value="1" selected>1 (in &eacute;&eacute;n keer geslaagd)</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+  </div>
+  <div class="calc-row">
+    <label for="ttt"><input type="checkbox" id="ttt"> Tussentijdse toets (TTT)</label>
+    <span class="calc-hint">Optioneel, door veel rijscholen geadviseerd</span>
+  </div>
+  <div class="calc-row">
+    <label for="gezondheid"><input type="checkbox" id="gezondheid" checked> Gezondheidsverklaring</label>
+  </div>
+
+  <div class="calc-total">
+    <table id="calc-breakdown"></table>
+    <div class="calc-grand-total">Totaal: <span id="calc-total-bedrag">&euro;0</span></div>
+  </div>
+</div>
+
+<p class="source-note">Tarieven: officiële CBR-tarieven 2026 (bekendgemaakt 14-10-2025) voor
+examens en gezondheidsverklaring. Rijlesprijs op basis van CBR-onderzoek onder
+examenkandidaten: 80% betaalt tussen &euro;50 en &euro;72 per uur. Gemeentekosten voor het
+rijbewijs: landelijk gemiddeld &euro;52,10, met een wettelijk maximum van &euro;53,65.
+CBR-tarieven zijn niet onderhandelbaar en gelden landelijk; rijlesprijzen verschillen per
+rijschool en regio. Dit is een indicatie, geen offerte.</p>
+
+<h2>Rijschool nodig?</h2>
+<p>Bekijk <a href="widgets.html">rijscholen in jouw regio</a> via onze locatiepagina's, of
+vergelijk direct de <a href="kortste-wachttijden.html">wachttijd per examenlocatie</a> zodat
+je weet waar je het snelst terecht kunt.</p>
+
+<h2>Meer weten over de kosten?</h2>
+<p>Lees ook <a href="kennisbank/hoe-lang-wachttijd-praktijkexamen/">hoe lang is de
+wachttijd voor het CBR praktijkexamen?</a> en <a
+href="kennisbank/wachttijd-theorie-examen/">hoe lang is de wachttijd voor het CBR
+theorie-examen?</a> om je hele traject te plannen.</p>
+
+<script>
+(function() {
+  var TARIEVEN = {
+    theorie: 50.50,
+    praktijk: 143.50,
+    ttt: 143.50,
+    gezondheidsverklaring: 46.90,
+    gemeente: 52.10
+  };
+
+  var lessen = document.getElementById('lessen');
+  var lesprijs = document.getElementById('lesprijs');
+  var theoriepogingen = document.getElementById('theoriepogingen');
+  var praktijkpogingen = document.getElementById('praktijkpogingen');
+  var ttt = document.getElementById('ttt');
+  var gezondheid = document.getElementById('gezondheid');
+  var breakdown = document.getElementById('calc-breakdown');
+  var totaalEl = document.getElementById('calc-total-bedrag');
+
+  function eur(n) {
+    return '\\u20ac' + n.toLocaleString('nl-NL', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+
+  function bereken() {
+    var rows = [];
+    var totaal = 0;
+
+    var lessenKosten = (parseFloat(lessen.value) || 0) * (parseFloat(lesprijs.value) || 0);
+    rows.push(['Rijlessen (' + lessen.value + ' \\u00d7 ' + eur(parseFloat(lesprijs.value) || 0) + ')', lessenKosten]);
+    totaal += lessenKosten;
+
+    var theorieKosten = TARIEVEN.theorie * (parseInt(theoriepogingen.value) || 1);
+    rows.push(['Theorie-examen (' + theoriepogingen.value + '\\u00d7)', theorieKosten]);
+    totaal += theorieKosten;
+
+    var praktijkKosten = TARIEVEN.praktijk * (parseInt(praktijkpogingen.value) || 1);
+    rows.push(['Praktijkexamen (' + praktijkpogingen.value + '\\u00d7)', praktijkKosten]);
+    totaal += praktijkKosten;
+
+    if (ttt.checked) {
+      rows.push(['Tussentijdse toets', TARIEVEN.ttt]);
+      totaal += TARIEVEN.ttt;
+    }
+    if (gezondheid.checked) {
+      rows.push(['Gezondheidsverklaring', TARIEVEN.gezondheidsverklaring]);
+      totaal += TARIEVEN.gezondheidsverklaring;
+    }
+
+    rows.push(['Rijbewijs aanvragen (gemeente)', TARIEVEN.gemeente]);
+    totaal += TARIEVEN.gemeente;
+
+    breakdown.innerHTML = rows.map(function(r) {
+      return '<tr><td>' + r[0] + '</td><td>' + eur(r[1]) + '</td></tr>';
+    }).join('');
+    totaalEl.textContent = eur(totaal);
+  }
+
+  [lessen, lesprijs, theoriepogingen, praktijkpogingen, ttt, gezondheid].forEach(function(el) {
+    el.addEventListener('input', bereken);
+    el.addEventListener('change', bereken);
+  });
+  bereken();
+})();
+</script>
+"""
+    (out_dir / "kosten-rijbewijs.html").write_text(
+        page("Wat kost een rijbewijs? Kostencalculator 2026 | rijexamenwachttijden.nl",
+             "Bereken de kosten van je rijbewijs op basis van de officiële CBR-tarieven "
+             "2026: rijlessen, theorie-examen, praktijkexamen en meer.", body,
+             canonical="/kosten-rijbewijs.html"))
+
+
 def build_over_page(out_dir):
     body = """
 <h1>Over dit archief</h1>
@@ -1093,6 +1252,7 @@ def build_sitemap(locations, out_dir):
         f"{SITE_URL}/over.html",
         f"{SITE_URL}/widgets.html",
         f"{SITE_URL}/kortste-wachttijden.html",
+        f"{SITE_URL}/kosten-rijbewijs.html",
         f"{SITE_URL}/kennisbank/",
     ]
     for lslug in locations:
@@ -1249,6 +1409,7 @@ def main():
     rijscholen = load_rijscholen()
     build_homepage(locations, latest_by_exam, DIST)
     build_over_page(DIST)
+    build_calculator_page(DIST)
     build_ranking_page(locations, latest_by_exam, DIST)
     build_kennisbank_index(DIST)
     build_kennisbank_pages(DIST)
