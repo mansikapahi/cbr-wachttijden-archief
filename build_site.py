@@ -243,8 +243,12 @@ FOOT = """
 """
 
 
-def page(title, description, body, root="./", extra_head=""):
+def page(title, description, body, root="./", extra_head="", canonical=None):
     html = HEAD.format(title=title, description=description, root=root) + body + FOOT
+    if canonical:
+        html = html.replace(
+            "</head>",
+            f'<link rel="canonical" href="{SITE_URL}{canonical}">\n</head>')
     if extra_head:
         html = html.replace("</head>", extra_head + "\n</head>")
     return html
@@ -388,7 +392,8 @@ wachttijden &mdash; een pauze van twee weken tijdens het examenseizoen. Zie
     (out_dir / "index.html").write_text(
         page("Wachttijden CBR-examens per locatie | rijexamenwachttijden.nl",
              "Actuele en historische wachttijden voor CBR praktijkexamen, herexamen en "
-             "theorie-examen per locatie in Nederland.", body, extra_head=DATASET_SCHEMA))
+             "theorie-examen per locatie in Nederland.", body, extra_head=DATASET_SCHEMA,
+             canonical="/"))
 
 
 def build_location_csv(lslug, entry, out_dir):
@@ -564,7 +569,8 @@ document.querySelectorAll('.alert-form').forEach(function(form) {{
     d.mkdir(parents=True, exist_ok=True)
     (d / "index.html").write_text(
         page(f"{entry['name']}: {current_praktijk} weken wachttijd praktijkexamen | rijexamenwachttijden.nl",
-             location_description, body, root="../../"))
+             location_description, body, root="../../",
+             canonical=f"/locatie/{lslug}/"))
 
 
 def build_widget(lslug, entry, out_dir):
@@ -647,7 +653,8 @@ wij die archiveren &mdash; je hoeft niets bij te werken.</p>
     (out_dir / "widgets.html").write_text(
         page("Widget voor rijscholen | rijexamenwachttijden.nl",
              "Gratis embeddable widget: toon de actuele CBR-wachttijd van jouw "
-             "examenlocatie op je eigen rijschool-website.", body))
+             "examenlocatie op je eigen rijschool-website.", body,
+             canonical="/widgets.html"))
 
 
 
@@ -716,7 +723,8 @@ document.querySelectorAll('.ranking-table').forEach(function(table) {{
     (out_dir / "kortste-wachttijden.html").write_text(
         page("Kortste wachttijden CBR-examens | rijexamenwachttijden.nl",
              "Alle examenlocaties in Nederland gerangschikt van kortste naar langste "
-             "CBR-wachttijd, voor praktijkexamen, herexamen en theorie-examen.", body))
+             "CBR-wachttijd, voor praktijkexamen, herexamen en theorie-examen.", body,
+             canonical="/kortste-wachttijden.html"))
 
 
 KENNISBANK = [
@@ -1004,7 +1012,7 @@ def build_kennisbank_pages(out_dir):
         (d / "index.html").write_text(
             page(f"{entry['title']} | rijexamenwachttijden.nl",
                  entry["description"], entry["body"], root="../../",
-                 extra_head=extra_head))
+                 extra_head=extra_head, canonical=f"/kennisbank/{entry['slug']}/"))
 
 
 def build_kennisbank_index(out_dir):
@@ -1026,7 +1034,7 @@ of lees <a href="../over.html">over dit archief</a>.</p>
         page("Kennisbank: alles over CBR-wachttijden | rijexamenwachttijden.nl",
              "Uitleg, achtergrond en veelgestelde vragen over CBR-wachttijden voor het "
              "praktijkexamen \u2014 per locatie, per examentype, en over tijd.",
-             body, root="../"))
+             body, root="../", canonical="/kennisbank/"))
 
 
 def build_over_page(out_dir):
@@ -1055,7 +1063,8 @@ eerder een plek vinden via het reserveringssysteem.</p>
 """
     (out_dir / "over.html").write_text(
         page("Over dit archief | rijexamenwachttijden.nl",
-             "Methodologie en achtergrond van het CBR-wachttijden archief.", body))
+             "Methodologie en achtergrond van het CBR-wachttijden archief.", body,
+             canonical="/over.html"))
 
 
 SITE_URL = "https://rijexamenwachttijden.nl"
