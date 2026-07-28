@@ -337,7 +337,7 @@ def build_homepage(locations, latest_by_exam, out_dir):
                 f'<div class="loc-row"><a href="locatie/{lslug}/">{entry["name"]}</a>'
                 f'<span class="pill {uc}">{w} wk</span></div>'
             )
-        cards.append(f'<div class="provincie"><h3>{prov}</h3>{"".join(rows)}</div>')
+        cards.append(f'<div class="provincie" id="{slugify(prov)}"><h3>{prov}</h3>{"".join(rows)}</div>')
 
     body = f"""
 <h1>Wachttijden CBR-examens per locatie</h1>
@@ -571,10 +571,21 @@ document.querySelectorAll('.alert-form').forEach(function(form) {{
 """
     d = out_dir / "locatie" / lslug
     d.mkdir(parents=True, exist_ok=True)
+    breadcrumb_schema = f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {{"@type": "ListItem", "position": 1, "name": "Overzicht", "item": "{SITE_URL}/"}},
+    {{"@type": "ListItem", "position": 2, "name": "{prov}", "item": "{SITE_URL}/#{slugify(prov)}"}},
+    {{"@type": "ListItem", "position": 3, "name": "{entry['name']}", "item": "{SITE_URL}/locatie/{lslug}/"}}
+  ]
+}}
+</script>"""
     (d / "index.html").write_text(
         page(f"{entry['name']}: {current_praktijk} weken wachttijd praktijkexamen | rijexamenwachttijden.nl",
              location_description, body, root="../../",
-             canonical=f"/locatie/{lslug}/"))
+             canonical=f"/locatie/{lslug}/", extra_head=breadcrumb_schema))
 
 
 def build_widget(lslug, entry, out_dir):
