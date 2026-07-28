@@ -557,6 +557,9 @@ er voldoende examenplekken beschikbaar zijn (CBR's eigen definitie).
 verschilt de wachttijd per examenlocatie?</a> of <a href="../../kennisbank/hoe-lang-wachttijd-praktijkexamen/">hoe
 lang is de wachttijd voor het CBR praktijkexamen?</a></p>
 
+<p class="source-note">Benieuwd wanneer je, gegeven deze wachttijd, klaar bent? Bereken het
+met onze <a href="../../planning.html?locatie={lslug}">planningstool voor {entry['name']}</a>.</p>
+
 <script>
 document.querySelectorAll('.alert-form').forEach(function(form) {{
   form.addEventListener('submit', async function(e) {{
@@ -696,6 +699,7 @@ def build_ranking_page(locations, latest_by_exam, out_dir):
     the kind of page people screenshot/share/bookmark on its own, and it's a
     natural match for high-intent searches like 'kortste wachttijd rijexamen'."""
     sections = []
+    primary_entries = None
     for slug in EXAM_ORDER:
         meta = EXAM_META[slug]
         rows = []
@@ -705,6 +709,8 @@ def build_ranking_page(locations, latest_by_exam, out_dir):
             if w is not None:
                 entries.append((lslug, entry, w))
         entries.sort(key=lambda t: weeks_sort_key(t[2]))
+        if primary_entries is None:
+            primary_entries = entries
 
         for rank, (lslug, entry, w) in enumerate(entries, start=1):
             uc = urgency_class(w)
@@ -753,11 +759,26 @@ document.querySelectorAll('.ranking-table').forEach(function(table) {{
 }});
 </script>
 """
+    itemlist_entries = "".join(
+        f'{{"@type": "ListItem", "position": {rank}, "name": "{entry["name"]}", '
+        f'"url": "{SITE_URL}/locatie/{lslug}/"}}' + (","  if rank < len(primary_entries) else "")
+        for rank, (lslug, entry, w) in enumerate(primary_entries, start=1)
+    )
+    itemlist_schema = f"""<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Kortste wachttijden CBR-praktijkexamen per locatie",
+  "itemListOrder": "https://schema.org/ItemListOrderAscending",
+  "itemListElement": [{itemlist_entries}]
+}}
+</script>"""
+
     (out_dir / "kortste-wachttijden.html").write_text(
         page("Kortste wachttijden CBR-examens | rijexamenwachttijden.nl",
              "Alle examenlocaties in Nederland gerangschikt van kortste naar langste "
              "CBR-wachttijd, voor praktijkexamen, herexamen en theorie-examen.", body,
-             canonical="/kortste-wachttijden.html"))
+             canonical="/kortste-wachttijden.html", extra_head=itemlist_schema))
 
 
 KENNISBANK = [
@@ -806,6 +827,11 @@ verschillen. Lees meer in <a href="../verschil-praktijkexamen-herexamen/">wachtt
 praktijkexamen vs. herexamen: wat is het verschil?</a> Benieuwd naar de wachttijd
 vóór het praktijkexamen? Zie <a href="../wachttijd-theorie-examen/">hoe lang is de
 wachttijd voor het CBR theorie-examen?</a></p>
+
+<h2>Plan je hele traject</h2>
+<p>Gebruik onze <a href="../../planning.html">planningstool</a> om te berekenen wanneer je
+klaar bent, of de <a href="../../kosten-rijbewijs.html">kostencalculator</a> voor een
+inschatting van de totale kosten.</p>
 """,
     },
     {
@@ -1006,6 +1032,9 @@ het theorie-examen, inclusief het verloop over de afgelopen weken.</p>
 
 <p>Lees ook <a href="../hoe-lang-wachttijd-praktijkexamen/">hoe lang is de wachttijd
 voor het CBR praktijkexamen?</a> voor het vervolg van je traject na het theorie-examen.</p>
+
+<p>Wil je weten wanneer je, gegeven de wachttijd van jouw locatie, klaar bent? Bereken het
+met onze <a href="../../planning.html">planningstool</a>.</p>
 """,
     },
 ]
@@ -1278,6 +1307,11 @@ planning ook je verwachte totale kosten te berekenen.</p>
     select.innerHTML = entries.map(function(e) {
       return '<option value="' + e.slug + '">' + e.name + ' (' + e.province + ')</option>';
     }).join('');
+    var params = new URLSearchParams(window.location.search);
+    var preselect = params.get('locatie');
+    if (preselect && json[preselect]) {
+      select.value = preselect;
+    }
     bereken();
   }).catch(function() {
     select.innerHTML = '<option value="">Kon locaties niet laden</option>';
