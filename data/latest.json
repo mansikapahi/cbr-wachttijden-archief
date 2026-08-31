@@ -1,36 +1,36 @@
 {
-  "fetched_date": "2026-08-25",
-  "iso_week": "2026-W35",
+  "fetched_date": "2026-08-31",
+  "iso_week": "2026-W36",
   "publications": {
     "wanneer-praktijkexamen": {
       "slug": "wanneer-praktijkexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1301962/pdfs/eeeeac18-1c2b-4015-80a3-e91990237050.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
+      "source_url": "https://view.publitas.com/37763/1301962/pdfs/3509dc3a-4375-4907-b597-a271ec496145.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
       "cover": {
-        "week": 34,
-        "period": "17 augustus - 23 augustus",
+        "week": 35,
+        "period": "24 augustus - 30 augustus",
         "exam": "Eerste examen"
       }
     },
     "wanneer-herexamen": {
       "slug": "wanneer-herexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/2216496/pdfs/99049668-e721-405d-8279-f17e14b2b0cc.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+      "source_url": "https://view.publitas.com/37763/2216496/pdfs/601eb884-3e0b-4fdd-bd1f-ea810c07f692.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
       "cover": {
-        "week": 34,
-        "period": "17 augustus - 23 augustus",
+        "week": 35,
+        "period": "24 augustus - 30 augustus",
         "exam": "Herexamen"
       }
     },
     "wanneer-theorie-examen": {
       "slug": "wanneer-theorie-examen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1325958/pdfs/26a17b9e-f087-4eae-aa6e-7b77f05401f7.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+      "source_url": "https://view.publitas.com/37763/1325958/pdfs/4deba4cc-155d-43d9-ada4-a4334f0eb610.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
       "cover": {
-        "week": 34,
-        "period": "17 augustus - 23 augustus",
+        "week": 35,
+        "period": "24 augustus - 30 augustus",
         "exam": "Theorie-examen",
-        "national_avg_weeks": 1.9
+        "national_avg_weeks": 1.7
       }
     }
   }
