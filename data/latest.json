@@ -1,34 +1,34 @@
 {
-  "fetched_date": "2026-09-22",
-  "iso_week": "2026-W39",
+  "fetched_date": "2026-09-28",
+  "iso_week": "2026-W40",
   "publications": {
     "wanneer-praktijkexamen": {
       "slug": "wanneer-praktijkexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1301962/pdfs/87d6e622-051a-4d83-9e8d-9f2aafea89c0.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
+      "source_url": "https://view.publitas.com/37763/1301962/pdfs/5eaa283e-86d3-442e-8392-d3b69d737b32.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
       "cover": {
-        "week": 38,
-        "period": "13 september - 20 september",
+        "week": 39,
+        "period": "21 september - 27 september",
         "exam": "Eerste examen"
       }
     },
     "wanneer-herexamen": {
       "slug": "wanneer-herexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/2216496/pdfs/00398bea-a5d7-45c9-b54d-72ce0bd6493d.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+      "source_url": "https://view.publitas.com/37763/2216496/pdfs/68ba0ee4-3452-4c88-8aac-6f1f3bc2706e.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
       "cover": {
-        "week": 38,
-        "period": "13 september - 20 september",
+        "week": 9,
+        "period": "21 september - 27 september",
         "exam": "Herexamen"
       }
     },
     "wanneer-theorie-examen": {
       "slug": "wanneer-theorie-examen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1325958/pdfs/2bb226e6-75b8-4845-a97e-f61c1d66477a.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+      "source_url": "https://view.publitas.com/37763/1325958/pdfs/55cdda9e-eb51-4587-9865-bd1629edd7fe.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
       "cover": {
-        "week": 38,
-        "period": "13 september - 20 september",
+        "week": 39,
+        "period": "21 september - 27 september",
         "exam": "Theorie-examen",
         "national_avg_weeks": 2.0
       }
