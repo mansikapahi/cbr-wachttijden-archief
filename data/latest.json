@@ -1,36 +1,36 @@
 {
-  "fetched_date": "2026-10-13",
-  "iso_week": "2026-W42",
+  "fetched_date": "2026-10-19",
+  "iso_week": "2026-W43",
   "publications": {
     "wanneer-praktijkexamen": {
       "slug": "wanneer-praktijkexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1301962/pdfs/b30de642-f626-4d8a-8e8c-5bfe6338af91.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
+      "source_url": "https://view.publitas.com/37763/1301962/pdfs/251fd7a9-8fb4-4db4-a19b-015d78ddc877.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
       "cover": {
-        "week": 41,
-        "period": "5 oktober - 11 oktober",
+        "week": 42,
+        "period": "12 oktober - 18 oktober",
         "exam": "Eerste examen"
       }
     },
     "wanneer-herexamen": {
       "slug": "wanneer-herexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/2216496/pdfs/e7111981-a3a5-424b-a09c-23c97be7bf31.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+      "source_url": "https://view.publitas.com/37763/2216496/pdfs/ea3750ec-1c01-4ed2-b1f7-c927c6bc5579.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
       "cover": {
-        "week": 41,
-        "period": "5 oktober - 11 oktober",
+        "week": 42,
+        "period": "12 oktober - 18 oktober",
         "exam": "Herexamen"
       }
     },
     "wanneer-theorie-examen": {
       "slug": "wanneer-theorie-examen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1325958/pdfs/3bf7c17e-16f2-4052-877a-9ab7d0f4c97b.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
+      "source_url": "https://view.publitas.com/37763/1325958/pdfs/b8251bc1-41ba-4dee-bac0-878b9cb7ae45.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Wanneer%2520theorie-examen.pdf",
       "cover": {
-        "week": 41,
-        "period": "5 oktober - 11 oktober",
+        "week": 42,
+        "period": "12 oktober - 18 oktober",
         "exam": "Theorie-examen",
-        "national_avg_weeks": 2.0
+        "national_avg_weeks": 2.1
       }
     }
   }
