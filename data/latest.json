@@ -1,24 +1,24 @@
 {
-  "fetched_date": "2026-10-27",
-  "iso_week": "2026-W44",
+  "fetched_date": "2026-11-02",
+  "iso_week": "2026-W45",
   "publications": {
     "wanneer-praktijkexamen": {
       "slug": "wanneer-praktijkexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/1301962/pdfs/d1160052-9769-4ef9-bc41-ddd441b2e225.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
+      "source_url": "https://view.publitas.com/37763/1301962/pdfs/30a1b18d-e2f6-4d20-916b-85c1947898bd.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27Praktijkexamens%2520auto%2520gemiddelde%2520wachttijd.pdf",
       "cover": {
-        "week": 43,
-        "period": "19 oktober - 25 oktober",
+        "week": 44,
+        "period": "26 oktober - 1 november",
         "exam": "Eerste examen"
       }
     },
     "wanneer-herexamen": {
       "slug": "wanneer-herexamen",
       "parse_status": "ok",
-      "source_url": "https://view.publitas.com/37763/2216496/pdfs/c645c87f-0590-4074-9491-c9d660f5f3a9.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
+      "source_url": "https://view.publitas.com/37763/2216496/pdfs/90ca79c1-27b3-498a-b8ac-eff14edc37f5.pdf?response-content-disposition=attachment%3B+filename%2A%3DUTF-8%27%27CBR%2520-%2520wanneer-herexamen.pdf",
       "cover": {
-        "week": 43,
-        "period": "19 oktober - 25 oktober",
+        "week": 44,
+        "period": "26 oktober - 1 november",
         "exam": "Herexamen"
       }
     },
